@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Gap Analysis | CareerAI</title>
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Chart.js Local Library -->
+  <script src="/js/chart.min.js"></script>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/chatbot.css">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <a href="/" class="nav-brand">
+      <div class="brand-icon">
+        <i class="fas fa-brain"></i>
+      </div>
+      <span>CareerAI</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="/profile" class="nav-link"><i class="fas fa-user-edit"></i> Profile & Resume</a></li>
+      <li><a href="/dashboard" class="nav-link"><i class="fas fa-th-large"></i> Dashboard</a></li>
+      <li><a href="/recommendations" class="nav-link"><i class="fas fa-chart-pie"></i> Recommendations</a></li>
+      <li><a href="/skill-gap" class="nav-link active"><i class="fas fa-puzzle-piece"></i> Skill Gap</a></li>
+      <li><a href="/roadmap" class="nav-link"><i class="fas fa-road"></i> Roadmap</a></li>
+    </ul>
+
+    <div id="nav-student-badge"></div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    <div class="page-header">
+      <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--maroon-subtle); color: var(--maroon); border: 1px solid #fecaca; padding: 0.35rem 0.9rem; border-radius: 99px; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.75rem;">
+        <i class="fas fa-microscope"></i> Intelligent Skill Diagnostics
+      </div>
+      <h1 class="page-title">Skill Gap Analysis Matrix</h1>
+      <p class="page-subtitle">
+        Understand your technical coverage against target career specifications. Classifies your skills into Known (Green), Partially Matched (Orange), and Missing (Red) categories.
+      </p>
+    </div>
+
+    <!-- Role Switcher Tabs (All 15 roles) -->
+    <div style="margin-bottom: 2rem;">
+      <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">
+        Select Target Career Role (15 Available):
+      </span>
+      <div id="role-tabs-container" class="gap-tabs"></div>
+    </div>
+
+    <!-- Loading State -->
+    <div id="gap-loading" style="text-align: center; padding: 4rem 0;">
+      <i class="fas fa-spinner fa-spin" style="font-size: 2.5rem; color: var(--maroon); margin-bottom: 1rem;"></i>
+      <p style="color: var(--text-muted);">Comparing student competencies against role standards...</p>
+    </div>
+
+    <!-- Gap Content State -->
+    <div id="gap-content" style="display: none;">
+      
+      <!-- Role Summary Header Card with Doughnut Chart -->
+      <div class="form-card" style="margin-bottom: 2rem; border-top: 5px solid var(--maroon);">
+        <div style="display: grid; grid-template-columns: 1.4fr 0.8fr; gap: 2rem; align-items: center;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.4rem;">
+              <span style="font-size: 0.82rem; font-weight: 800; color: var(--maroon); text-transform: uppercase;">
+                Target Career Path
+              </span>
+              <span id="readiness-badge" class="btn-yellow btn-sm" style="border-radius: 99px; font-weight: 700;">--% Match</span>
+            </div>
+            <h2 id="target-role-title" style="color: var(--maroon); font-size: 2rem; font-weight: 800; margin-bottom: 0.75rem;">Role Title</h2>
+            
+            <div class="progress-container" style="height: 10px; margin-bottom: 1rem;">
+              <div id="readiness-progress-bar" class="progress-fill" style="width: 0%;"></div>
+            </div>
+
+            <p id="gap-summary-text" style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.55; margin-bottom: 1.5rem;"></p>
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <a id="btn-go-roadmap" href="/roadmap" class="btn btn-primary">
+                <i class="fas fa-road"></i> Launch Learning Roadmap
+              </a>
+              <a id="btn-go-details" href="/career-details" class="btn btn-secondary">
+                <i class="fas fa-info-circle"></i> View Role Overview
+              </a>
+            </div>
+          </div>
+
+          <div style="position: relative; height: 180px; width: 100%; display: flex; justify-content: center; align-items: center;">
+            <canvas id="gap-coverage-chart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Visual Columns Grid -->
+      <div class="gap-columns-grid">
+        
+        <!-- Known Skills Column (Green) -->
+        <div class="gap-column col-known">
+          <div class="column-header">
+            <span class="col-title">
+              <i class="fas fa-check-circle"></i> Known Skills
+            </span>
+            <span id="known-count-badge" class="col-badge">0</span>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.82rem; margin-bottom: 1rem;">
+            Skills you currently possess at an intermediate or advanced proficiency level.
+          </p>
+          <div id="col-known-list"></div>
+        </div>
+
+        <!-- Partially Matched Skills Column (Orange) -->
+        <div class="gap-column col-partial">
+          <div class="column-header">
+            <span class="col-title">
+              <i class="fas fa-adjust"></i> Partially Matched
+            </span>
+            <span id="partial-count-badge" class="col-badge">0</span>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.82rem; margin-bottom: 1rem;">
+            Skills at beginner depth or transferable adjacent technologies you can quickly build upon.
+          </p>
+          <div id="col-partial-list"></div>
+        </div>
+
+        <!-- Missing Skills Column (Red) -->
+        <div class="gap-column col-missing">
+          <div class="column-header">
+            <span class="col-title">
+              <i class="fas fa-exclamation-circle"></i> Missing Skills
+            </span>
+            <span id="missing-count-badge" class="col-badge">0</span>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.82rem; margin-bottom: 1rem;">
+            Crucial industry skills not currently in your profile, prioritized for study.
+          </p>
+          <div id="col-missing-list"></div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 AI Career Guidance System. Built with Python Flask, Scikit-Learn, SQLite, and Chart.js.</p>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/skill_gap.js"></script>
+  <script src="/js/chatbot.js"></script>
+</body>
+</html>

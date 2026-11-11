@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Career Guidance System | Intelligent Career Navigation</title>
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/chatbot.css">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <a href="/" class="nav-brand">
+      <div class="brand-icon">
+        <i class="fas fa-brain"></i>
+      </div>
+      <span>CareerAI</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="/profile" class="nav-link"><i class="fas fa-user-edit"></i> Profile & Resume</a></li>
+      <li><a href="/dashboard" class="nav-link"><i class="fas fa-th-large"></i> Dashboard</a></li>
+      <li><a href="/recommendations" class="nav-link"><i class="fas fa-chart-pie"></i> Recommendations</a></li>
+      <li><a href="/skill-gap" class="nav-link"><i class="fas fa-puzzle-piece"></i> Skill Gap</a></li>
+      <li><a href="/roadmap" class="nav-link"><i class="fas fa-road"></i> Roadmap</a></li>
+    </ul>
+
+    <div id="nav-student-badge">
+      <a href="/profile" class="btn btn-sm btn-primary">
+        <i class="fas fa-user-plus"></i> Get Started
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <i class="fas fa-sparkles"></i> AI-Powered Career Intelligence
+        </div>
+        <h1 class="hero-title">
+          Discover Your Ideal <span class="maroon-text">Technology Career Path</span> with Machine Learning
+        </h1>
+        <p class="hero-desc">
+          Upload your resume or specify your technical competencies, college branch, and career aspirations. 
+          Our dual-engine AI platform blends <strong>Scikit-learn Decision Tree Classification</strong> with <strong>Rule-based Deductive Logic</strong> across 15 modern tech roles to pinpoint your Top 3 career fits, diagnose skill gaps, and generate a customized 4-month learning roadmap.
+        </p>
+        <div class="hero-actions">
+          <a href="/profile" class="btn btn-primary btn-lg">
+            <i class="fas fa-file-upload"></i> Upload Resume & Start
+          </a>
+          <a href="/recommendations" class="btn btn-secondary btn-lg">
+            <i class="fas fa-compass"></i> View Career Recommendations
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--maroon);"></div>
+              <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--yellow-accent);"></div>
+              <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--blue-primary);"></div>
+            </div>
+            <span style="font-size: 0.75rem; color: var(--maroon); font-weight: 800;">INTELLIGENT DUAL-ENGINE</span>
+          </div>
+
+          <div style="background: var(--light-yellow-surface); border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; border: 1px solid #fde68a;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <h4 style="color: var(--text-main); font-size: 1.15rem; font-weight: 800;">Data Scientist</h4>
+              <span style="color: var(--maroon); font-weight: 800; font-size: 1.35rem;">91.4%</span>
+            </div>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Machine Learning • Statistics • Python • SQL</p>
+            <div class="progress-container">
+              <div class="progress-fill" style="width: 91.4%;"></div>
+            </div>
+          </div>
+
+          <div style="background: var(--light-blue-surface); border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; border: 1px solid #bae6fd;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <h4 style="color: var(--text-main); font-size: 1.15rem; font-weight: 800;">AI Engineer</h4>
+              <span style="color: var(--blue-dark); font-weight: 800; font-size: 1.35rem;">87.8%</span>
+            </div>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Deep Learning • PyTorch • TensorFlow • Mathematics</p>
+            <div class="progress-container">
+              <div class="progress-fill" style="width: 87.8%; background: linear-gradient(90deg, var(--blue-primary), var(--purple-accent));"></div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+            <span class="btn-sm" style="background: var(--maroon-subtle); color: var(--maroon); border-radius: 99px; font-weight: 700; font-size: 0.78rem;">
+              <i class="fas fa-check"></i> Scikit-Learn Decision Tree
+            </span>
+            <span class="btn-sm" style="background: var(--light-yellow-badge); color: var(--yellow-dark); border-radius: 99px; font-weight: 700; font-size: 0.78rem;">
+              <i class="fas fa-check"></i> Rule-Based Deductive AI
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Four Core Features Section -->
+    <section>
+      <div class="page-header" style="margin-top: 2rem;">
+        <h2 class="page-title">The Four Core Features</h2>
+        <p class="page-subtitle">A seamless pipeline translating your raw skills and academic background into job-ready competence.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon icon-maroon">
+            <i class="fas fa-id-card-alt"></i>
+          </div>
+          <h3 class="feature-title">1. Student Profile & Resume Ingestion</h3>
+          <p class="feature-desc">
+            Enter your college branch, semester, programming languages, and frameworks—or drop your PDF/DOCX resume for automated text parsing, skill extraction, and live review.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-purple">
+            <i class="fas fa-sitemap"></i>
+          </div>
+          <h3 class="feature-title">2. AI Career Recommendations</h3>
+          <p class="feature-desc">
+            Evaluates your profile against 15 technology career paths using Scikit-learn Decision Trees and deductive IF-ELSE logic to dynamically recommend your Top 3 careers.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-yellow">
+            <i class="fas fa-search-plus"></i>
+          </div>
+          <h3 class="feature-title">3. Intelligent Skill Gap Analysis</h3>
+          <p class="feature-desc">
+            Categorizes required competencies into Known Skills (Green), Partially Matched Skills (Orange), and Missing Skills (Red), explaining why each skill matters in hiring.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-blue">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+          <h3 class="feature-title">4. Personalized Learning Roadmap</h3>
+          <p class="feature-desc">
+            Generates realistic 4-month milestones with free official documentation, curated YouTube tutorials, practical project deliverables, and an interactive SQLite checklist.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="form-card" style="margin: 3.5rem 0; border-top: 4px solid var(--maroon);">
+      <div class="page-header" style="margin-bottom: 2rem;">
+        <h2 class="page-title" style="font-size: 2rem;">How It Works</h2>
+        <p class="page-subtitle">Three straightforward steps to transform your career navigation.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; text-align: center;">
+        <div style="padding: 1.5rem; background: var(--bg-main); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--maroon); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 800; margin: 0 auto 1rem;">1</div>
+          <h4 style="font-weight: 800; margin-bottom: 0.5rem; color: var(--maroon);">Submit Profile or Resume</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Drop your PDF/DOCX resume or select your technical skills and interests in our intuitive form.</p>
+        </div>
+
+        <div style="padding: 1.5rem; background: var(--bg-main); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--purple-accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 800; margin: 0 auto 1rem;">2</div>
+          <h4 style="font-weight: 800; margin-bottom: 0.5rem; color: var(--purple-accent);">AI Engine Inference</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Our Decision Tree and Rule Engine calculate non-hardcoded match percentages across 15 career paths.</p>
+        </div>
+
+        <div style="padding: 1.5rem; background: var(--bg-main); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--blue-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 800; margin: 0 auto 1rem;">3</div>
+          <h4 style="font-weight: 800; margin-bottom: 0.5rem; color: var(--blue-primary);">Execute Your Roadmap</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Follow month-by-month learning milestones, build hands-on projects, and mark tasks complete.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Supported 15 Career Roles Knowledge Base Grid -->
+    <section class="form-card" style="margin: 3.5rem 0;">
+      <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--maroon); text-align: center; margin-bottom: 1.5rem;">
+        Supported 15 Technology Career Roles in Knowledge Base
+      </h3>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem;">
+        <a href="/career-details?role=data_analyst" class="btn btn-secondary btn-sm"><i class="fas fa-chart-bar" style="color: var(--blue-primary);"></i> Data Analyst</a>
+        <a href="/career-details?role=data_scientist" class="btn btn-secondary btn-sm"><i class="fas fa-flask" style="color: var(--purple-accent);"></i> Data Scientist</a>
+        <a href="/career-details?role=ml_engineer" class="btn btn-secondary btn-sm"><i class="fas fa-brain" style="color: var(--maroon);"></i> Machine Learning Engineer</a>
+        <a href="/career-details?role=ai_engineer" class="btn btn-secondary btn-sm"><i class="fas fa-robot" style="color: #ec4899;"></i> AI Engineer</a>
+        <a href="/career-details?role=frontend_developer" class="btn btn-secondary btn-sm"><i class="fas fa-code" style="color: var(--blue-primary);"></i> Frontend Developer</a>
+        <a href="/career-details?role=backend_developer" class="btn btn-secondary btn-sm"><i class="fas fa-server" style="color: var(--yellow-dark);"></i> Backend Developer</a>
+        <a href="/career-details?role=fullstack_developer" class="btn btn-secondary btn-sm"><i class="fas fa-layer-group" style="color: #047857;"></i> Full Stack Developer</a>
+        <a href="/career-details?role=python_developer" class="btn btn-secondary btn-sm"><i class="fab fa-python" style="color: #0284c7;"></i> Python Developer</a>
+        <a href="/career-details?role=java_developer" class="btn btn-secondary btn-sm"><i class="fab fa-java" style="color: #ea580c;"></i> Java Developer</a>
+        <a href="/career-details?role=software_engineer" class="btn btn-secondary btn-sm"><i class="fas fa-laptop-code" style="color: var(--maroon);"></i> Software Engineer</a>
+        <a href="/career-details?role=cybersecurity_analyst" class="btn btn-secondary btn-sm"><i class="fas fa-shield-alt" style="color: #b91c1c;"></i> Cybersecurity Analyst</a>
+        <a href="/career-details?role=cloud_engineer" class="btn btn-secondary btn-sm"><i class="fas fa-cloud" style="color: var(--blue-primary);"></i> Cloud Engineer</a>
+        <a href="/career-details?role=devops_engineer" class="btn btn-secondary btn-sm"><i class="fas fa-infinity" style="color: var(--purple-accent);"></i> DevOps Engineer</a>
+        <a href="/career-details?role=database_administrator" class="btn btn-secondary btn-sm"><i class="fas fa-database" style="color: var(--yellow-dark);"></i> Database Administrator</a>
+        <a href="/career-details?role=ui_ux_developer" class="btn btn-secondary btn-sm"><i class="fas fa-pencil-ruler" style="color: #db2777;"></i> UI/UX Developer</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 AI Career Guidance System. Built with Python Flask, Scikit-Learn, SQLite, and Chart.js.</p>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/chatbot.js"></script>
+</body>
+</html>

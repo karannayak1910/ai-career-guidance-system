@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Profile & Resume Studio | CareerAI</title>
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/chatbot.css">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <a href="/" class="nav-brand">
+      <div class="brand-icon">
+        <i class="fas fa-brain"></i>
+      </div>
+      <span>CareerAI</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="/profile" class="nav-link active"><i class="fas fa-user-edit"></i> Profile & Resume</a></li>
+      <li><a href="/dashboard" class="nav-link"><i class="fas fa-th-large"></i> Dashboard</a></li>
+      <li><a href="/recommendations" class="nav-link"><i class="fas fa-chart-pie"></i> Recommendations</a></li>
+      <li><a href="/skill-gap" class="nav-link"><i class="fas fa-puzzle-piece"></i> Skill Gap</a></li>
+      <li><a href="/roadmap" class="nav-link"><i class="fas fa-road"></i> Roadmap</a></li>
+    </ul>
+
+    <div id="nav-student-badge"></div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    <div class="page-header">
+      <div class="badge badge-maroon" style="margin-bottom: 0.75rem;">
+        <i class="fas fa-user-graduate"></i> Step 1: Student Profile Collection
+      </div>
+      <h1 class="page-title">Student Profile & Resume Studio</h1>
+      <p class="page-subtitle">
+        Upload your resume for instant AI extraction or customize your academic background, technical skills, and career preferences below.
+      </p>
+    </div>
+
+    <!-- Resume Upload Section -->
+    <div class="form-card" style="border-left: 5px solid var(--maroon);">
+      <div class="form-section-title">
+        <i class="fas fa-file-import" style="color: var(--maroon);"></i>
+        <span>Automated Resume Ingestion (Optional)</span>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 1.25rem;">
+        Upload your PDF or DOCX resume. Our parser will extract your technical skills, programming languages, education, and interests, allowing you to review and tweak them before saving.
+      </p>
+
+      <div class="upload-dropzone" id="resume-dropzone" onclick="document.getElementById('resume-file-input').click()">
+        <input type="file" id="resume-file-input" accept=".pdf,.docx,.doc" style="display: none;" />
+        <div class="upload-icon">
+          <i class="fas fa-cloud-upload-alt"></i>
+        </div>
+        <div class="upload-text">Drag and drop your Resume here, or click to browse</div>
+        <div class="upload-hint">Supported formats: PDF, DOCX (Max size: 16 MB)</div>
+      </div>
+
+      <div class="file-status-box" id="file-status-box">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <i class="fas fa-file-alt" style="color: var(--maroon); font-size: 1.3rem;"></i>
+          <span id="file-status-name" style="font-weight: 700; color: var(--text-main);"></span>
+        </div>
+        <div id="upload-indicator" style="display: none; color: var(--blue-primary); font-size: 0.85rem; font-weight: 600;">
+          <i class="fas fa-circle-notch fa-spin"></i> Extracting entities...
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Form -->
+    <form id="profile-form">
+      
+      <!-- 1. Academic & Personal Information -->
+      <div class="form-card">
+        <div class="form-section-title">
+          <i class="fas fa-graduation-cap" style="color: var(--maroon);"></i>
+          <span>1. Personal & Academic Information</span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="full_name">
+              <span>Student Full Name <strong style="color: #ef4444;">*</strong></span>
+            </label>
+            <input type="text" id="full_name" class="form-input" placeholder="e.g. Aarav Sharma" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="college_name">
+              <span>College / University <span class="hint">(Optional)</span></span>
+            </label>
+            <input type="text" id="college_name" class="form-input" placeholder="e.g. Delhi Technological University" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="branch">
+              <span>College Branch / Major <strong style="color: #ef4444;">*</strong></span>
+            </label>
+            <select id="branch" class="form-select" required>
+              <option value="">Select your branch...</option>
+              <option value="Computer Science">Computer Science & Engineering (CSE)</option>
+              <option value="Information Technology">Information Technology (IT)</option>
+              <option value="Artificial Intelligence">Artificial Intelligence & Data Science (AI/DS)</option>
+              <option value="Data Science">Data Science</option>
+              <option value="Electronics & Communication">Electronics & Communication (ECE)</option>
+              <option value="Electrical Engineering">Electrical Engineering (EEE)</option>
+              <option value="Mechanical Engineering">Mechanical Engineering</option>
+              <option value="Civil Engineering">Civil Engineering</option>
+              <option value="Other">Other Branch</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="current_semester">
+              <span>Current Semester <strong style="color: #ef4444;">*</strong></span>
+            </label>
+            <select id="current_semester" class="form-select" required>
+              <option value="1">Semester 1 (1st Year)</option>
+              <option value="2">Semester 2 (1st Year)</option>
+              <option value="3">Semester 3 (2nd Year)</option>
+              <option value="4">Semester 4 (2nd Year)</option>
+              <option value="5">Semester 5 (3rd Year)</option>
+              <option value="6" selected>Semester 6 (3rd Year)</option>
+              <option value="7">Semester 7 (4th Year)</option>
+              <option value="8">Semester 8 (4th Year)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="graduation_year">
+              <span>Expected Graduation Year <strong style="color: #ef4444;">*</strong></span>
+            </label>
+            <select id="graduation_year" class="form-select" required>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026" selected>2026</option>
+              <option value="2027">2027</option>
+              <option value="2028">2028</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Technical Skills & Proficiency -->
+      <div class="form-card">
+        <div class="form-section-title">
+          <i class="fas fa-laptop-code" style="color: var(--maroon);"></i>
+          <span>2. Technical Knowledge & Skill Proficiency</span>
+        </div>
+        <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 1.25rem;">
+          Click badges to select skills. You can adjust the individual proficiency (Beginner, Intermediate, Advanced) in the configured skills list below.
+        </p>
+
+        <!-- Programming Languages -->
+        <div class="form-group">
+          <label class="form-label">Programming Languages</label>
+          <div class="tag-container" id="tags-programming"></div>
+        </div>
+
+        <!-- Frameworks -->
+        <div class="form-group">
+          <label class="form-label">Frameworks & Libraries</label>
+          <div class="tag-container" id="tags-frameworks"></div>
+        </div>
+
+        <!-- Databases -->
+        <div class="form-group">
+          <label class="form-label">Databases & Storage</label>
+          <div class="tag-container" id="tags-databases"></div>
+        </div>
+
+        <!-- Tools -->
+        <div class="form-group">
+          <label class="form-label">Tools, Cloud & DevOps</label>
+          <div class="tag-container" id="tags-tools"></div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="form-group">
+          <label class="form-label">Core Technical Competencies</label>
+          <div class="tag-container" id="tags-tech-skills"></div>
+        </div>
+
+        <!-- Custom Skill Input -->
+        <div class="form-group" style="max-width: 440px; margin-top: 1rem;">
+          <label class="form-label">Add Other Custom Skills</label>
+          <div style="display: flex; gap: 0.5rem;">
+            <input type="text" id="custom-skill-input" class="form-input" placeholder="Type skill & press Enter..." />
+            <button type="button" class="btn btn-secondary" onclick="addCustomSkill(document.getElementById('custom-skill-input'))">
+              <i class="fas fa-plus"></i> Add
+            </button>
+          </div>
+        </div>
+
+        <!-- Configured Skills List with Proficiency -->
+        <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <h4 style="font-size: 1rem; color: var(--text-main); font-weight: 700;">
+              <i class="fas fa-sliders-h" style="color: var(--maroon);"></i> Configured Skill Proficiencies
+            </h4>
+            <span id="selected-skills-count" class="badge badge-purple">
+              0 Selected
+            </span>
+          </div>
+
+          <div id="selected-skills-container" class="skill-list-grid"></div>
+        </div>
+      </div>
+
+      <!-- 3. Interests & Career Preferences -->
+      <div class="form-card">
+        <div class="form-section-title">
+          <i class="fas fa-compass" style="color: var(--maroon);"></i>
+          <span>3. Interests & Career Preferences</span>
+        </div>
+
+        <!-- Interests -->
+        <div class="form-group">
+          <label class="form-label">
+            <span>Core Interest Areas <span class="hint">(Select all areas that appeal to you)</span></span>
+          </label>
+          <div class="tag-container" id="tags-interests"></div>
+        </div>
+
+        <div class="form-row" style="margin-top: 1.5rem;">
+          <div class="form-group">
+            <label class="form-label" for="preferred_work_area">Preferred Work Environment</label>
+            <select id="preferred_work_area" class="form-select">
+              <option value="Remote">Remote</option>
+              <option value="Hybrid" selected>Hybrid</option>
+              <option value="On-site">On-site</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="preferred_career_type">Preferred Career Role Type</label>
+            <select id="preferred_career_type" class="form-select">
+              <option value="Full-time" selected>Full-time Employment</option>
+              <option value="Internship">Internship Opportunity</option>
+              <option value="Freelance">Freelance / Independent</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="hours_per_week">
+              <span>Weekly Learning Availability: <strong id="hours_val" style="color: var(--maroon);">12 hrs/week</strong></span>
+            </label>
+            <input type="range" id="hours_per_week" min="5" max="40" step="1" value="12" style="width: 100%; accent-color: var(--maroon); margin-top: 0.5rem;" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Action Button -->
+      <div style="text-align: center; margin: 2.5rem 0;">
+        <button type="submit" id="btn-submit-profile" class="btn btn-primary btn-lg" style="min-width: 320px;">
+          <i class="fas fa-rocket"></i> Submit Profile & Run AI Recommendation Engine
+        </button>
+      </div>
+
+    </form>
+  </main>
+
+  <!-- Resume Review & Edit Modal -->
+  <div class="modal-backdrop" id="review-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title"><i class="fas fa-clipboard-check" style="color: var(--maroon);"></i> Review Extracted Resume Details</h3>
+        <button class="modal-close" onclick="closeReviewModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="review-modal-body"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeReviewModal()">Cancel</button>
+        <button class="btn btn-primary" id="btn-apply-extracted">
+          <i class="fas fa-check"></i> Apply Extracted Data to Form
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Confirmation Modal -->
+  <div class="modal-backdrop" id="success-modal">
+    <div class="modal-box">
+      <div class="modal-body" id="success-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 AI Career Guidance System. Built with Python Flask, Scikit-Learn Decision Trees, Rule-Based AI, SQLite, and Chart.js.</p>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/profile.js"></script>
+  <script src="/js/chatbot.js"></script>
+</body>
+</html>

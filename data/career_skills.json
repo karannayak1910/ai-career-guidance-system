@@ -1,0 +1,380 @@
+{
+  "skills": {
+    "Python": {
+      "category": "Programming Languages",
+      "aliases": ["python", "py", "python3"],
+      "why_it_matters": "Python is the primary language for AI, Data Science, backend APIs, and automation with the largest library ecosystem in tech.",
+      "documentation": "https://docs.python.org/3/",
+      "youtube": "https://www.youtube.com/watch?v=_uQrJ0TkZlc",
+      "project_idea": "Build an asynchronous REST microservice with automated test suites."
+    },
+    "JavaScript": {
+      "category": "Programming Languages",
+      "aliases": ["javascript", "js", "es6", "vanilla js"],
+      "why_it_matters": "Powers 98% of interactive client web applications and high-concurrency server applications via Node.js.",
+      "documentation": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "youtube": "https://www.youtube.com/watch?v=W6NZfCO5SIk",
+      "project_idea": "Interactive Kanban board with drag-and-drop task sorting and local storage sync."
+    },
+    "TypeScript": {
+      "category": "Programming Languages",
+      "aliases": ["typescript", "ts"],
+      "why_it_matters": "Adds static typing to JavaScript, catching compilation errors early and powering scalable enterprise codebases.",
+      "documentation": "https://www.typescriptlang.org/docs/",
+      "youtube": "https://www.youtube.com/watch?v=BwuLxPH8IDs",
+      "project_idea": "Type-safe E-commerce shopping cart and checkout validator."
+    },
+    "Java": {
+      "category": "Programming Languages",
+      "aliases": ["java", "core java", "j2se"],
+      "why_it_matters": "Dominates high-concurrency enterprise backends, banking platforms, and large-scale distributed systems.",
+      "documentation": "https://docs.oracle.com/en/java/",
+      "youtube": "https://www.youtube.com/watch?v=eIrMbAQSU34",
+      "project_idea": "Bank account transaction engine with concurrent thread-safe operations."
+    },
+    "C++": {
+      "category": "Programming Languages",
+      "aliases": ["cpp", "c++", "c plus plus"],
+      "why_it_matters": "Crucial for systems programming, operating systems, game engines, and competitive algorithmic problem solving.",
+      "documentation": "https://en.cppreference.com/w/",
+      "youtube": "https://www.youtube.com/watch?v=vLnPwxZdW4Y",
+      "project_idea": "Custom memory allocator and high-speed LRU Cache implementation."
+    },
+    "HTML": {
+      "category": "Web Development",
+      "aliases": ["html", "html5"],
+      "why_it_matters": "The structural semantic backbone of modern web pages and browser accessibility.",
+      "documentation": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      "youtube": "https://www.youtube.com/watch?v=kUMe1FH4CHE",
+      "project_idea": "Accessible, semantic multi-page website adhering to WCAG standards."
+    },
+    "CSS": {
+      "category": "Web Development",
+      "aliases": ["css", "css3"],
+      "why_it_matters": "Controls visual layouts, responsive viewports, typography, and interactive modern animations.",
+      "documentation": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+      "youtube": "https://www.youtube.com/watch?v=1PnVor36_40",
+      "project_idea": "Responsive dashboard layout using modern Flexbox & CSS Grid without external frameworks."
+    },
+    "Tailwind CSS": {
+      "category": "Frameworks",
+      "aliases": ["tailwind", "tailwind css", "tailwindcss"],
+      "why_it_matters": "Utility-first CSS framework enabling rapid, highly customized modern responsive UI designs.",
+      "documentation": "https://tailwindcss.com/docs",
+      "youtube": "https://www.youtube.com/watch?v=dFgzHOX84xQ",
+      "project_idea": "Responsive SaaS landing page with dark/light mode toggle."
+    },
+    "React": {
+      "category": "Frameworks",
+      "aliases": ["react", "react.js", "reactjs"],
+      "why_it_matters": "The dominant frontend UI library for building modular, high-speed single-page applications.",
+      "documentation": "https://react.dev/",
+      "youtube": "https://www.youtube.com/watch?v=bMknfKXIFA8",
+      "project_idea": "Real-time stock price tracker with live WebSockets and interactive charts."
+    },
+    "Next.js": {
+      "category": "Frameworks",
+      "aliases": ["nextjs", "next.js", "next"],
+      "why_it_matters": "Full-stack React framework providing Server-Side Rendering (SSR) and automated SEO optimization.",
+      "documentation": "https://nextjs.org/docs",
+      "youtube": "https://www.youtube.com/watch?v=843nec-IvW0",
+      "project_idea": "Full-stack blog with server-side markdown rendering and API routes."
+    },
+    "Node.js": {
+      "category": "Frameworks",
+      "aliases": ["nodejs", "node", "node.js"],
+      "why_it_matters": "Enables asynchronous non-blocking event-driven backend microservices in JavaScript.",
+      "documentation": "https://nodejs.org/en/docs",
+      "youtube": "https://www.youtube.com/watch?v=f2EqECiTBL8",
+      "project_idea": "Collaborative real-time chat server using Socket.io and Node.js."
+    },
+    "Django": {
+      "category": "Frameworks",
+      "aliases": ["django"],
+      "why_it_matters": "High-level Python web framework with built-in ORM, admin panel, authentication, and security protections.",
+      "documentation": "https://docs.djangoproject.com/",
+      "youtube": "https://www.youtube.com/watch?v=F5mRW0jo-U4",
+      "project_idea": "Job portal web app with company profiles, resume applications, and admin moderation."
+    },
+    "Flask": {
+      "category": "Frameworks",
+      "aliases": ["flask"],
+      "why_it_matters": "Lightweight, unopinionated Python web microframework ideal for ML model serving and REST APIs.",
+      "documentation": "https://flask.palletsprojects.com/",
+      "youtube": "https://www.youtube.com/watch?v=Z1RJmh_OqeA",
+      "project_idea": "REST API serving machine learning model predictions with request validation."
+    },
+    "FastAPI": {
+      "category": "Frameworks",
+      "aliases": ["fastapi", "fast api"],
+      "why_it_matters": "Modern, high-performance Python framework with automatic Swagger docs and native asynchronous support.",
+      "documentation": "https://fastapi.tiangolo.com/",
+      "youtube": "https://www.youtube.com/watch?v=tLKKmouU58Q",
+      "project_idea": "High-throughput asynchronous image recognition API with background queues."
+    },
+    "Spring Boot": {
+      "category": "Frameworks",
+      "aliases": ["spring boot", "springboot", "spring"],
+      "why_it_matters": "The enterprise standard for building production-grade Java microservices and RESTful applications.",
+      "documentation": "https://spring.io/projects/spring-boot",
+      "youtube": "https://www.youtube.com/watch?v=9SGDpanrc8U",
+      "project_idea": "Transactional banking API with JPA repositories and JWT authentication."
+    },
+    "SQL": {
+      "category": "Databases",
+      "aliases": ["sql", "structured query language"],
+      "why_it_matters": "Universal declarative query language essential for extracting and manipulating relational database assets.",
+      "documentation": "https://www.w3schools.com/sql/",
+      "youtube": "https://www.youtube.com/watch?v=HXV3zeRR3h4",
+      "project_idea": "Multi-table database schema with complex window functions and performance benchmarks."
+    },
+    "PostgreSQL": {
+      "category": "Databases",
+      "aliases": ["postgres", "postgresql", "psql"],
+      "why_it_matters": "Advanced open-source relational database offering JSONB support, ACID reliability, and geospatial queries.",
+      "documentation": "https://www.postgresql.org/docs/",
+      "youtube": "https://www.youtube.com/watch?v=qw--VYLpxG4",
+      "project_idea": "Geospatial restaurant search service using PostGIS extension."
+    },
+    "MySQL": {
+      "category": "Databases",
+      "aliases": ["mysql"],
+      "why_it_matters": "World's most popular open-source relational database powering web applications at massive scale.",
+      "documentation": "https://dev.mysql.com/doc/",
+      "youtube": "https://www.youtube.com/watch?v=7S_tz1z_5bA",
+      "project_idea": "Inventory management database with transactional consistency and indexing."
+    },
+    "MongoDB": {
+      "category": "Databases",
+      "aliases": ["mongodb", "mongo", "nosql"],
+      "why_it_matters": "Document-oriented NoSQL database that accommodates flexible, evolving schemas and horizontal scaling.",
+      "documentation": "https://www.mongodb.com/docs/",
+      "youtube": "https://www.youtube.com/watch?v=ofme2o29ngU",
+      "project_idea": "Content management system storing nested comments and tags in JSON documents."
+    },
+    "Redis": {
+      "category": "Databases",
+      "aliases": ["redis", "in-memory"],
+      "why_it_matters": "Ultra-fast in-memory key-value data store used for sub-millisecond caching, session stores, and rate limiting.",
+      "documentation": "https://redis.io/docs/",
+      "youtube": "https://www.youtube.com/watch?v=jgpVdJB2sKQ",
+      "project_idea": "Distributed API rate limiter handling 10,000 requests per second."
+    },
+    "Git": {
+      "category": "Tools",
+      "aliases": ["git", "github", "gitlab"],
+      "why_it_matters": "Industry-standard version control system enabling team branching, peer reviews, and code auditing.",
+      "documentation": "https://git-scm.com/doc",
+      "youtube": "https://www.youtube.com/watch?v=RGOj5yH7evk",
+      "project_idea": "Multi-contributor Git workflow with pull request templates and branch protections."
+    },
+    "Docker": {
+      "category": "Tools",
+      "aliases": ["docker", "containers", "containerization"],
+      "why_it_matters": "Standardizes software environments into lightweight containers, eliminating machine-specific deployment discrepancies.",
+      "documentation": "https://docs.docker.com/",
+      "youtube": "https://www.youtube.com/watch?v=pg19Z8LL06w",
+      "project_idea": "Multi-container stack with frontend, backend API, database, and Redis cache."
+    },
+    "Kubernetes": {
+      "category": "Tools",
+      "aliases": ["kubernetes", "k8s"],
+      "why_it_matters": "Automates deployment, horizontal scaling, and self-healing management of containerized application clusters.",
+      "documentation": "https://kubernetes.io/docs/home/",
+      "youtube": "https://www.youtube.com/watch?v=X48VuDVv0do",
+      "project_idea": "Deploy a stateless web service with ReplicaSets, Ingress, and Autoscaling."
+    },
+    "Linux": {
+      "category": "Tools",
+      "aliases": ["linux", "ubuntu", "bash", "shell"],
+      "why_it_matters": "Over 90% of cloud servers run on Linux. Mastering command line and permissions is foundational.",
+      "documentation": "https://linuxjourney.com/",
+      "youtube": "https://www.youtube.com/watch?v=sWbGOq4ftl8",
+      "project_idea": "Automated server health monitoring bash script sending alerts on high memory usage."
+    },
+    "AWS": {
+      "category": "Cloud Computing",
+      "aliases": ["aws", "amazon web services", "cloud computing", "cloud"],
+      "why_it_matters": "Leading cloud provider offering global compute, managed storage, serverless, and database infrastructure.",
+      "documentation": "https://docs.aws.amazon.com/",
+      "youtube": "https://www.youtube.com/watch?v=k1RI5locZE4",
+      "project_idea": "Deploy serverless REST API using AWS Lambda, API Gateway, and DynamoDB."
+    },
+    "CI/CD": {
+      "category": "Tools",
+      "aliases": ["ci/cd", "continuous integration", "github actions"],
+      "why_it_matters": "Automates linting, test suites, building, and zero-downtime deployment on every code commit.",
+      "documentation": "https://docs.github.com/en/actions",
+      "youtube": "https://www.youtube.com/watch?v=R8_veQiYBjI",
+      "project_idea": "GitHub Actions workflow testing code and publishing Docker images on merge."
+    },
+    "Machine Learning": {
+      "category": "Technical Skills",
+      "aliases": ["machine learning", "ml", "scikit-learn"],
+      "why_it_matters": "Allows software systems to learn predictive patterns from historical data without explicit rule coding.",
+      "documentation": "https://scikit-learn.org/stable/",
+      "youtube": "https://www.youtube.com/watch?v=GwIo3gDZCVQ",
+      "project_idea": "Customer churn prediction pipeline with cross-validation and ROC-AUC evaluation."
+    },
+    "Deep Learning": {
+      "category": "Technical Skills",
+      "aliases": ["deep learning", "neural networks", "cnn", "rnn", "transformers"],
+      "why_it_matters": "Powers breakthrough advancements in Computer Vision, Natural Language Processing, and Generative AI.",
+      "documentation": "https://www.deeplearningbook.org/",
+      "youtube": "https://www.youtube.com/watch?v=aircAruvnKk",
+      "project_idea": "Train a Convolutional Neural Network for image anomaly detection."
+    },
+    "TensorFlow": {
+      "category": "Frameworks",
+      "aliases": ["tensorflow", "tf", "keras"],
+      "why_it_matters": "Google's production-grade deep learning ecosystem for training and serving machine learning models.",
+      "documentation": "https://www.tensorflow.org/",
+      "youtube": "https://www.youtube.com/watch?v=tPYj3fFJGjk",
+      "project_idea": "Export a trained TensorFlow Lite neural network model for edge mobile inference."
+    },
+    "PyTorch": {
+      "category": "Frameworks",
+      "aliases": ["pytorch", "torch"],
+      "why_it_matters": "Primary deep learning framework in AI research labs due to dynamic computation graphs and clean Pythonic syntax.",
+      "documentation": "https://pytorch.org/",
+      "youtube": "https://www.youtube.com/watch?v=V_xro1bcAuA",
+      "project_idea": "Fine-tune a pretrained HuggingFace Transformer model on custom domain text."
+    },
+    "Pandas": {
+      "category": "Technical Skills",
+      "aliases": ["pandas"],
+      "why_it_matters": "Standard data manipulation and analysis library for structured tabular data in Python.",
+      "documentation": "https://pandas.pydata.org/docs/",
+      "youtube": "https://www.youtube.com/watch?v=vmEHCJofslg",
+      "project_idea": "Automated financial ledger cleaning and pivot table summary generator."
+    },
+    "NumPy": {
+      "category": "Technical Skills",
+      "aliases": ["numpy"],
+      "why_it_matters": "Provides high-performance vectorized multidimensional array and matrix computations in Python.",
+      "documentation": "https://numpy.org/doc/stable/",
+      "youtube": "https://www.youtube.com/watch?v=QUT1VHiLmmI",
+      "project_idea": "Vectorized linear algebra algorithms and matrix operations from scratch."
+    },
+    "Power BI": {
+      "category": "Tools",
+      "aliases": ["power bi", "powerbi", "dax"],
+      "why_it_matters": "Microsoft's premier business analytics tool for creating interactive KPI dashboards and reports.",
+      "documentation": "https://learn.microsoft.com/en-us/power-bi/",
+      "youtube": "https://www.youtube.com/watch?v=3u7MQz1EyPY",
+      "project_idea": "Executive revenue dashboard with custom DAX measures and drill-down filters."
+    },
+    "Tableau": {
+      "category": "Tools",
+      "aliases": ["tableau"],
+      "why_it_matters": "Leading visual analytics platform used by organizations to transform raw data into visual stories.",
+      "documentation": "https://help.tableau.com/",
+      "youtube": "https://www.youtube.com/watch?v=aHaOIvR00So",
+      "project_idea": "Interactive global supply chain logistics visualization map."
+    },
+    "Excel": {
+      "category": "Tools",
+      "aliases": ["excel", "ms excel", "spreadsheets"],
+      "why_it_matters": "Ubiquitous business analytics tool for quick ad-hoc analysis, pivot tables, and financial modeling.",
+      "documentation": "https://support.microsoft.com/en-us/excel",
+      "youtube": "https://www.youtube.com/watch?v=Vl0H-qTclOg",
+      "project_idea": "Financial forecasting workbook with VLOOKUP/XLOOKUP, INDEX-MATCH, and macros."
+    },
+    "Statistics": {
+      "category": "Technical Skills",
+      "aliases": ["statistics", "probability", "statistical analysis", "hypothesis testing"],
+      "why_it_matters": "The mathematical foundation ensuring data conclusions and predictive models are statistically sound.",
+      "documentation": "https://openintro-ims.netlify.app/",
+      "youtube": "https://www.youtube.com/watch?v=xxpc-HPKN28",
+      "project_idea": "A/B test statistical significance calculator evaluating p-values and confidence intervals."
+    },
+    "Mathematics": {
+      "category": "Technical Skills",
+      "aliases": ["mathematics", "linear algebra", "calculus"],
+      "why_it_matters": "Linear algebra, multivariate calculus, and optimization power gradient descent and neural network updates.",
+      "documentation": "https://mml-book.github.io/",
+      "youtube": "https://www.youtube.com/watch?v=fNk_zzaMoSs",
+      "project_idea": "Gradient descent optimization algorithm programmed from scratch in pure Python."
+    },
+    "Data Structures": {
+      "category": "Technical Skills",
+      "aliases": ["data structures", "dsa", "arrays", "trees", "graphs", "linked lists"],
+      "why_it_matters": "Core foundational knowledge required to organize memory efficiently and clear technical hiring bars.",
+      "documentation": "https://www.geeksforgeeks.org/data-structures/",
+      "youtube": "https://www.youtube.com/watch?v=RBSGKlAnoiM",
+      "project_idea": "Self-balancing AVL Tree and Graph traversal implementations in Python/Java/C++."
+    },
+    "Algorithms": {
+      "category": "Technical Skills",
+      "aliases": ["algorithms", "sorting", "dynamic programming", "graph algorithms"],
+      "why_it_matters": "Teaches computational complexity analysis (Big-O) and optimal algorithmic problem solving.",
+      "documentation": "https://algs4.cs.princeton.edu/home/",
+      "youtube": "https://www.youtube.com/watch?v=0IAPZzGSbME",
+      "project_idea": "Shortest-path visualizer implementing Dijkstra and A* pathfinding algorithms."
+    },
+    "Networking": {
+      "category": "Technical Skills",
+      "aliases": ["networking", "computer networks", "tcp/ip", "dns", "http"],
+      "why_it_matters": "Fundamental to understanding how packets, routers, firewalls, and cloud VPC subnets communicate securely.",
+      "documentation": "https://www.cloudflare.com/learning/network-layer/what-is-a-protocol/",
+      "youtube": "https://www.youtube.com/watch?v=IPvYjXCsTg8",
+      "project_idea": "Packet sniffer and protocol analyzer inspecting live TCP/UDP traffic."
+    },
+    "Cybersecurity": {
+      "category": "Technical Skills",
+      "aliases": ["cybersecurity", "infosec", "security", "penetration testing", "ethical hacking"],
+      "why_it_matters": "Defends organizational data assets, authentication perimeters, and infrastructure against exploits.",
+      "documentation": "https://owasp.org/www-project-top-ten/",
+      "youtube": "https://www.youtube.com/watch?v=inWWhr5tnEA",
+      "project_idea": "OWASP Top 10 security audit script testing endpoints for SQL injection vulnerabilities."
+    },
+    "REST APIs": {
+      "category": "Technical Skills",
+      "aliases": ["rest apis", "rest api", "rest", "web apis", "api"],
+      "why_it_matters": "The architectural standard for decoupled communication between client frontends and backend services.",
+      "documentation": "https://restfulapi.net/",
+      "youtube": "https://www.youtube.com/watch?v=-MTSQjw5DrM",
+      "project_idea": "CRUD REST API with pagination, token authentication, and OpenAPI documentation."
+    },
+    "UI/UX Design": {
+      "category": "Technical Skills",
+      "aliases": ["ui/ux design", "ui/ux", "ui design", "ux design", "wireframing"],
+      "why_it_matters": "Ensures digital products are intuitive, accessible, visually appealing, and solve real user pain points.",
+      "documentation": "https://www.nngroup.com/articles/",
+      "youtube": "https://www.youtube.com/watch?v=c9Wg6Cb_YlU",
+      "project_idea": "High-fidelity interactive mobile prototype with user journey mapping in Figma."
+    },
+    "Figma": {
+      "category": "Tools",
+      "aliases": ["figma"],
+      "why_it_matters": "The industry's leading collaborative design and prototyping tool for web and mobile interfaces.",
+      "documentation": "https://help.figma.com/hc/en-us",
+      "youtube": "https://www.youtube.com/watch?v=FTFaQWZBqQ8",
+      "project_idea": "Complete SaaS web application UI kit with reusable auto-layout design components."
+    },
+    "Responsive Design": {
+      "category": "Web Development",
+      "aliases": ["responsive design", "mobile responsive", "media queries"],
+      "why_it_matters": "Ensures web layouts render seamlessly across mobile phones, tablets, laptops, and ultra-wide desktop monitors.",
+      "documentation": "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design",
+      "youtube": "https://www.youtube.com/watch?v=x4u1yp3Msao",
+      "project_idea": "Fluid multi-device responsive portfolio with media queries and flexible viewport units."
+    },
+    "Data Visualization": {
+      "category": "Technical Skills",
+      "aliases": ["data visualization", "charts", "charting"],
+      "why_it_matters": "Transforms dry numbers into visual graphs that stakeholders and decision-makers can quickly interpret.",
+      "documentation": "https://www.tableau.com/learn/articles/data-visualization",
+      "youtube": "https://www.youtube.com/watch?v=UO98lSm3aIc",
+      "project_idea": "Multi-chart interactive analytical dashboard using Chart.js or D3.js."
+    },
+    "OOP": {
+      "category": "Technical Skills",
+      "aliases": ["oop", "object oriented programming", "classes"],
+      "why_it_matters": "Foundational programming paradigm utilizing encapsulation, inheritance, polymorphism, and abstraction.",
+      "documentation": "https://en.wikipedia.org/wiki/Object-oriented_programming",
+      "youtube": "https://www.youtube.com/watch?v=pTB0EiLXUC8",
+      "project_idea": "Object-oriented simulation engine with inheritance hierarchies and modular design."
+    }
+  }
+}

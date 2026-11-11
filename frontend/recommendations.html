@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Recommendations | CareerAI</title>
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Chart.js Local Library -->
+  <script src="/js/chart.min.js"></script>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/chatbot.css">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <a href="/" class="nav-brand">
+      <div class="brand-icon">
+        <i class="fas fa-brain"></i>
+      </div>
+      <span>CareerAI</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="/profile" class="nav-link"><i class="fas fa-user-edit"></i> Profile & Resume</a></li>
+      <li><a href="/dashboard" class="nav-link"><i class="fas fa-th-large"></i> Dashboard</a></li>
+      <li><a href="/recommendations" class="nav-link active"><i class="fas fa-chart-pie"></i> Recommendations</a></li>
+      <li><a href="/skill-gap" class="nav-link"><i class="fas fa-puzzle-piece"></i> Skill Gap</a></li>
+      <li><a href="/roadmap" class="nav-link"><i class="fas fa-road"></i> Roadmap</a></li>
+    </ul>
+
+    <div id="nav-student-badge"></div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    <div class="page-header">
+      <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--maroon-subtle); color: var(--maroon); border: 1px solid #fecaca; padding: 0.35rem 0.9rem; border-radius: 99px; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.75rem;">
+        <i class="fas fa-brain"></i> Dual Engine: Rule-Based Deductive AI & Scikit-Learn Decision Tree
+      </div>
+      <h1 class="page-title">Top 3 Career Recommendations</h1>
+      <p class="page-subtitle">
+        Transparently calculated from your verified skill coverage, self-reported proficiency, domain interests, and machine-learned decision tree classifications.
+      </p>
+    </div>
+
+    <!-- Disagreement Explanation Banner (Appears if Decision Tree and Rule Engine disagree) -->
+    <div id="disagreement-banner" style="display: none;"></div>
+
+    <!-- Loading State -->
+    <div id="loading-state" style="text-align: center; padding: 4rem 0;">
+      <i class="fas fa-circle-notch fa-spin" style="font-size: 2.5rem; color: var(--maroon); margin-bottom: 1rem;"></i>
+      <p style="color: var(--text-muted); font-size: 1.05rem;">Evaluating student profile against 15 technology career paths...</p>
+    </div>
+
+    <!-- Empty State -->
+    <div id="empty-state" style="display: none; text-align: center; padding: 4rem 1.5rem; background: #ffffff; border: 1px solid var(--border-color); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+      <div style="width: 70px; height: 70px; border-radius: 50%; background: var(--light-yellow-badge); color: var(--yellow-dark); font-size: 2.2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+        <i class="fas fa-exclamation-triangle"></i>
+      </div>
+      <h3 style="color: var(--text-main); font-size: 1.4rem; margin-bottom: 0.5rem;">No Profile Data Found</h3>
+      <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 1.75rem;">
+        Please complete your student profile or upload your resume first so the recommendation engine can analyze your competencies.
+      </p>
+      <a href="/profile" class="btn btn-primary btn-lg">
+        <i class="fas fa-user-edit"></i> Complete Profile Now
+      </a>
+    </div>
+
+    <!-- Results State -->
+    <div id="results-state" style="display: none;">
+      
+      <!-- Top 3 Cards Grid -->
+      <div id="top-3-cards-container" class="career-cards-grid"></div>
+
+      <!-- Radar Chart Section -->
+      <div class="form-card" style="margin-top: 2rem;">
+        <div class="form-section-title">
+          <i class="fas fa-chart-area" style="color: var(--purple-accent);"></i>
+          <span>Multi-Role Competency Radar Chart (All 15 Technology Careers)</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
+          Compare your technical breadth, algorithmic readiness, and domain affinity across all 15 technology roles.
+        </p>
+
+        <div style="position: relative; height: 440px; width: 100%;">
+          <canvas id="career-radar-chart"></canvas>
+        </div>
+      </div>
+
+      <!-- Full Ranked Table -->
+      <div class="form-card" style="margin-top: 2rem;">
+        <div class="form-section-title">
+          <i class="fas fa-list-ol" style="color: var(--blue-primary);"></i>
+          <span>Complete 15-Role Career Suitability Matrix</span>
+        </div>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border-color); color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase;">
+                <th style="padding: 0.75rem 1rem;">Rank</th>
+                <th style="padding: 0.75rem 1rem;">Career Role</th>
+                <th style="padding: 0.75rem 1rem;">Industry Domain</th>
+                <th style="padding: 0.75rem 1rem;">Average Salary</th>
+                <th style="padding: 0.75rem 1rem;">Match Score</th>
+                <th style="padding: 0.75rem 1rem; text-align: right;">Action</th>
+              </tr>
+            </thead>
+            <tbody id="all-roles-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- CTA Footer Bar -->
+      <div style="text-align: center; margin: 3rem 0; padding: 2.25rem; background: var(--light-yellow-surface); border: 1px solid #fde68a; border-radius: var(--radius-md);">
+        <h3 style="color: var(--text-main); margin-bottom: 0.5rem; font-weight: 800;">Ready to close your skill gaps?</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
+          Examine the exact missing requirements in our Skill Gap Analysis, or launch your 4-month structured roadmap.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a href="/skill-gap" class="btn btn-primary">
+            <i class="fas fa-puzzle-piece"></i> Analyze Skill Gaps
+          </a>
+          <a href="/roadmap" class="btn btn-accent">
+            <i class="fas fa-road"></i> Open Learning Roadmap
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 AI Career Guidance System. Built with Python Flask, Scikit-Learn, SQLite, and Chart.js.</p>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/recommendations.js"></script>
+  <script src="/js/chatbot.js"></script>
+</body>
+</html>

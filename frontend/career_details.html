@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Details | CareerAI</title>
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/chatbot.css">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <a href="/" class="nav-brand">
+      <div class="brand-icon">
+        <i class="fas fa-brain"></i>
+      </div>
+      <span>CareerAI</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="/profile" class="nav-link"><i class="fas fa-user-edit"></i> Profile & Resume</a></li>
+      <li><a href="/dashboard" class="nav-link"><i class="fas fa-th-large"></i> Dashboard</a></li>
+      <li><a href="/recommendations" class="nav-link"><i class="fas fa-chart-pie"></i> Recommendations</a></li>
+      <li><a href="/skill-gap" class="nav-link"><i class="fas fa-puzzle-piece"></i> Skill Gap</a></li>
+      <li><a href="/roadmap" class="nav-link"><i class="fas fa-road"></i> Roadmap</a></li>
+    </ul>
+
+    <div id="nav-student-badge"></div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    <div style="margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <a href="/recommendations" class="btn btn-sm btn-outline">
+        <i class="fas fa-arrow-left"></i> Back to Recommendations
+      </a>
+      <div style="display: flex; gap: 0.75rem;">
+        <a id="btn-cd-gap" href="/skill-gap" class="btn btn-sm btn-primary">
+          <i class="fas fa-puzzle-piece"></i> Skill Gap Analysis
+        </a>
+        <a id="btn-cd-roadmap" href="/roadmap" class="btn btn-sm btn-accent">
+          <i class="fas fa-road"></i> Learning Roadmap
+        </a>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div id="career-loading" style="text-align: center; padding: 4rem 0;">
+      <i class="fas fa-circle-notch fa-spin" style="font-size: 2.5rem; color: var(--maroon); margin-bottom: 1rem;"></i>
+      <p style="color: var(--text-muted);">Retrieving career specifications and student alignment...</p>
+    </div>
+
+    <!-- Content State -->
+    <div id="career-content" style="display: none;">
+      
+      <!-- Role Hero Banner -->
+      <div class="form-card" style="border-top: 5px solid var(--maroon);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <span id="cd-domain" class="career-domain">Domain Name</span>
+            <h1 id="cd-title" style="font-size: 2.2rem; font-weight: 800; color: var(--maroon); margin-bottom: 0.5rem;">Role Title</h1>
+            <div style="display: flex; gap: 0.65rem; flex-wrap: wrap;">
+              <span class="career-salary">
+                <i class="fas fa-coins"></i> <span id="cd-salary">$100,000</span>
+              </span>
+              <span class="btn-yellow btn-sm" style="border-radius: 99px; font-weight: 700;">
+                <i class="fas fa-chart-line"></i> <span id="cd-demand">Market Demand: High</span>
+              </span>
+              <span class="btn-sm" style="background: var(--light-blue-surface); border: 1px solid #bae6fd; color: #0369a1; border-radius: 99px; font-weight: 700;">
+                <i class="fas fa-signal"></i> <span id="cd-difficulty">Difficulty: Intermediate</span>
+              </span>
+            </div>
+          </div>
+
+          <div id="cd-match-score" class="match-score-badge high" style="font-size: 2.2rem; padding: 0.5rem 1rem; background: var(--maroon-subtle); border-radius: 12px; border: 1px solid #fecaca;">
+            --% Match
+          </div>
+        </div>
+
+        <p id="cd-desc" style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6; margin: 1.25rem 0 0.5rem;">
+          Career Description
+        </p>
+      </div>
+
+      <!-- Suitability & Why Matches Explanation -->
+      <div class="form-card" style="border-left: 5px solid var(--purple-accent); background: #ffffff;">
+        <div class="form-section-title" style="border-bottom-color: #f3e8ff;">
+          <i class="fas fa-lightbulb" style="color: var(--purple-accent);"></i>
+          <span>Why This Career Matches Your Profile</span>
+        </div>
+        <p id="cd-why-matches" style="color: var(--text-main); font-size: 0.98rem; line-height: 1.6; margin-bottom: 1rem;">
+          Detailed explanation of profile synergy and rule reasoning.
+        </p>
+        <div style="background: var(--light-blue-surface); border: 1px solid #bae6fd; border-radius: var(--radius-sm); padding: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+          <i class="fas fa-compass" style="color: var(--blue-primary); font-size: 1.3rem;"></i>
+          <div>
+            <strong style="color: var(--blue-dark); font-size: 0.9rem;">Recommended Next Steps:</strong>
+            <div id="cd-next-steps" style="font-size: 0.88rem; color: var(--text-secondary);">Focus your roadmap on closing missing skills.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills Comparison Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+        
+        <!-- Matched Skills (Green) -->
+        <div class="form-card" style="margin-bottom: 0; border-top: 4px solid var(--success);">
+          <h4 style="font-size: 1.1rem; color: #047857; font-weight: 800; margin-bottom: 0.75rem;">
+            <i class="fas fa-check-circle"></i> Your Matched Skills
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.82rem; margin-bottom: 1rem;">Competencies you currently possess that directly satisfy role requirements.</p>
+          <div id="cd-matched-skills" style="display: flex; flex-wrap: wrap; gap: 0.45rem;"></div>
+        </div>
+
+        <!-- Missing Skills (Red) -->
+        <div class="form-card" style="margin-bottom: 0; border-top: 4px solid var(--danger);">
+          <h4 style="font-size: 1.1rem; color: #b91c1c; font-weight: 800; margin-bottom: 0.75rem;">
+            <i class="fas fa-exclamation-circle"></i> Missing Required Skills
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.82rem; margin-bottom: 1rem;">High-priority skills to target in your personalized roadmap.</p>
+          <div id="cd-missing-skills" style="display: flex; flex-wrap: wrap; gap: 0.45rem;"></div>
+        </div>
+
+      </div>
+
+      <!-- Complete Role Specification: Required vs Preferred Skills -->
+      <div class="form-card">
+        <div class="form-section-title">
+          <i class="fas fa-layer-group" style="color: var(--blue-primary);"></i>
+          <span>Official Industry Role Requirements</span>
+        </div>
+        
+        <div style="margin-bottom: 1.25rem;">
+          <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.5rem;">Core Required Skills:</h5>
+          <div id="cd-required-skills" style="display: flex; flex-wrap: wrap; gap: 0.45rem;"></div>
+        </div>
+
+        <div>
+          <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.5rem;">Preferred Secondary Skills:</h5>
+          <div id="cd-preferred-skills" style="display: flex; flex-wrap: wrap; gap: 0.45rem;"></div>
+        </div>
+      </div>
+
+      <!-- Recommended Beginner Projects -->
+      <div class="form-card">
+        <div class="form-section-title">
+          <i class="fas fa-code-branch" style="color: var(--yellow-dark);"></i>
+          <span>Recommended Portfolio Projects</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+          Stand out to hiring managers by completing practical, deployable projects tailored to this career path.
+        </p>
+        <div id="cd-projects-list" style="display: flex; flex-direction: column; gap: 1rem;"></div>
+      </div>
+
+      <!-- Curated Free Learning Resources -->
+      <div class="form-card">
+        <div class="form-section-title">
+          <i class="fas fa-book-reader" style="color: var(--maroon);"></i>
+          <span>Suggested Free Learning Resources</span>
+        </div>
+        <div id="cd-resources-list" style="display: flex; flex-wrap: wrap; gap: 0.75rem;"></div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 AI Career Guidance System. Built with Python Flask, Scikit-Learn, SQLite, and Chart.js.</p>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/career_details.js"></script>
+  <script src="/js/chatbot.js"></script>
+</body>
+</html>

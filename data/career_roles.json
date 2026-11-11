@@ -1,0 +1,484 @@
+{
+  "roles": [
+    {
+      "id": "data_analyst",
+      "title": "Data Analyst",
+      "domain": "Data Analytics & Business Intelligence",
+      "description": "Translates complex numerical data into clear, actionable business insights through SQL querying, statistical data wrangling, and executive BI dashboards.",
+      "average_salary": "$75,000 - $95,000 / ₹6 - 12 LPA",
+      "market_demand": "High",
+      "learning_difficulty": "Beginner to Intermediate",
+      "required_skills": ["SQL", "Excel", "Data Visualization", "Statistics", "Power BI"],
+      "preferred_skills": ["Python", "Tableau", "Pandas", "NumPy", "A/B Testing", "ETL"],
+      "programming_languages": ["SQL", "Python", "R"],
+      "tools_and_frameworks": ["Power BI", "Tableau", "Excel", "Jupyter", "Pandas"],
+      "knowledge_areas": ["Exploratory Data Analysis", "Descriptive Statistics", "Relational Modeling", "Business Metrics & KPIs"],
+      "relevant_interests": ["Data Analytics", "Data Science", "Business Intelligence"],
+      "recommended_projects": [
+        {
+          "title": "E-Commerce Customer Retention & Sales Dashboard",
+          "description": "Clean raw transactional sales data in SQL/Excel and design an interactive multi-tab Power BI dashboard tracking monthly recurring revenue (MRR) and customer churn.",
+          "deliverable": "Interactive Power BI (.pbix) file and SQL analysis queries published on GitHub."
+        },
+        {
+          "title": "A/B Testing Conversion Analysis Pipeline",
+          "description": "Evaluate marketing experiment conversions using hypothesis testing, p-values, and statistical significance testing in Python.",
+          "deliverable": "Jupyter Notebook report with Seaborn charts and executive summary."
+        }
+      ],
+      "learning_resources": [
+        { "name": "Mode Analytics SQL Tutorial", "url": "https://mode.com/sql-tutorial/", "type": "Documentation" },
+        { "name": "Alex The Analyst Data Analyst Bootcamp", "url": "https://www.youtube.com/watch?v=rGx1QNdYz2w", "type": "YouTube" },
+        { "name": "Microsoft Power BI Official Documentation", "url": "https://learn.microsoft.com/en-us/power-bi/", "type": "Documentation" }
+      ]
+    },
+    {
+      "id": "data_scientist",
+      "title": "Data Scientist",
+      "domain": "Data Science & Advanced Analytics",
+      "description": "Leverages statistical modeling, machine learning algorithms, hypothesis testing, and exploratory data analysis to solve ambiguous predictive business problems.",
+      "average_salary": "$115,000 - $145,000 / ₹10 - 24 LPA",
+      "market_demand": "Very High",
+      "learning_difficulty": "Intermediate to Advanced",
+      "required_skills": ["Python", "Machine Learning", "Statistics", "Pandas", "SQL", "Scikit-learn"],
+      "preferred_skills": ["Deep Learning", "Mathematics", "Feature Engineering", "Data Visualization", "Big Data", "Git"],
+      "programming_languages": ["Python", "R", "SQL"],
+      "tools_and_frameworks": ["Scikit-learn", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Jupyter"],
+      "knowledge_areas": ["Supervised & Unsupervised Learning", "Inferential Statistics", "Data Wrangling", "Model Evaluation & Cross-Validation"],
+      "relevant_interests": ["Data Science", "Machine Learning", "Artificial Intelligence"],
+      "recommended_projects": [
+        {
+          "title": "Loan Default Predictive Classification Pipeline",
+          "description": "Build an end-to-end classification pipeline predicting loan repayment defaults with SMOTE handling for class imbalance and ROC-AUC optimization.",
+          "deliverable": "Scikit-learn model pipeline with modular Python scripts and serialized model artifact."
+        },
+        {
+          "title": "Real Estate Valuation Regressor with Feature Engineering",
+          "description": "Engineer geospatial and property features to train Gradient Boosting regressors estimating home sale prices.",
+          "deliverable": "Jupyter notebook with SHAP explainability analysis and documentation."
+        }
+      ],
+      "learning_resources": [
+        { "name": "StatQuest with Josh Starmer - Machine Learning Fundamentals", "url": "https://www.youtube.com/watch?v=Gv9_4yMHFhI", "type": "YouTube" },
+        { "name": "Scikit-Learn User Guide & API Documentation", "url": "https://scikit-learn.org/stable/user_guide.html", "type": "Documentation" },
+        { "name": "Python for Data Analysis by Wes McKinney", "url": "https://wesmckinney.com/book/", "type": "Documentation" }
+      ]
+    },
+    {
+      "id": "ml_engineer",
+      "title": "Machine Learning Engineer",
+      "domain": "Machine Learning Systems & Engineering",
+      "description": "Bridges the gap between data science and production software engineering by designing scalable data pipelines, training ML algorithms, and deploying inference microservices.",
+      "average_salary": "$125,000 - $160,000 / ₹12 - 26 LPA",
+      "market_demand": "Extremely High",
+      "learning_difficulty": "Advanced",
+      "required_skills": ["Python", "Machine Learning", "Scikit-learn", "Docker", "REST APIs", "Git"],
+      "preferred_skills": ["Deep Learning", "MLOps", "FastAPI", "SQL", "Linux", "Kubernetes", "PyTorch"],
+      "programming_languages": ["Python", "C++", "SQL"],
+      "tools_and_frameworks": ["Scikit-learn", "FastAPI", "Docker", "MLflow", "Git", "Linux"],
+      "knowledge_areas": ["Model Packaging & Serving", "Latency Optimization", "Pipeline Automation", "Data Drift Monitoring"],
+      "relevant_interests": ["Machine Learning", "Software Development", "Artificial Intelligence"],
+      "recommended_projects": [
+        {
+          "title": "Containerized Sentiment Analysis Microservice",
+          "description": "Train a text classifier, package inference into a high-throughput FastAPI REST API, containerize with Docker, and set up health check monitoring.",
+          "deliverable": "Dockerized microservice with OpenAPI Swagger documentation and automated tests."
+        },
+        {
+          "title": "End-to-End MLOps Pipeline with MLflow Tracking",
+          "description": "Automate hyperparameter tracking, model registry versioning, and validation metrics logging using MLflow.",
+          "deliverable": "GitHub repository with automated experiment tracking scripts and Dockerfile."
+        }
+      ],
+      "learning_resources": [
+        { "name": "Made With ML by Goku Mohandas", "url": "https://madewithml.com/", "type": "Documentation" },
+        { "name": "Full Stack Deep Learning MLOps", "url": "https://fullstackdeeplearning.com/", "type": "Documentation" },
+        { "name": "FastAPI Official Documentation", "url": "https://fastapi.tiangolo.com/", "type": "Documentation" }
+      ]
+    },
+    {
+      "id": "ai_engineer",
+      "title": "AI Engineer",
+      "domain": "Artificial Intelligence & Deep Learning",
+      "description": "Researches, fine-tunes, and integrates bleeding-edge deep learning, Generative AI, Computer Vision, and Large Language Model (LLM) architectures into modern applications.",
+      "average_salary": "$135,000 - $175,000 / ₹14 - 30 LPA",
+      "market_demand": "Extremely High",
+      "learning_difficulty": "Advanced",
+      "required_skills": ["Python", "Deep Learning", "PyTorch", "Mathematics", "TensorFlow"],
+      "preferred_skills": ["Machine Learning", "NLP", "Computer Vision", "Docker", "HuggingFace", "Transformers", "Git"],
+      "programming_languages": ["Python", "C++"],
+      "tools_and_frameworks": ["PyTorch", "TensorFlow", "HuggingFace", "LangChain", "CUDA", "OpenCV"],
+      "knowledge_areas": ["Neural Network Architectures (CNN/RNN/Transformer)", "Fine-Tuning & Quantization", "Vector Databases", "Prompt Engineering"],
+      "relevant_interests": ["Artificial Intelligence", "Deep Learning", "Machine Learning"],
+      "recommended_projects": [
+        {
+          "title": "Domain-Specific RAG Knowledge Assistant using LangChain & ChromaDB",
+          "description": "Build a Retrieval-Augmented Generation (RAG) assistant indexing technical documents with embeddings and serving grounded answers.",
+          "deliverable": "Working Python application with vector store integration and conversational UI."
+        },
+        {
+          "title": "Vision Transformer / CNN Medical Scan Classifier",
+          "description": "Implement and train a Vision Transformer (ViT) or ResNet in PyTorch on open medical imaging datasets with data augmentations.",
+          "deliverable": "PyTorch training scripts with validation logs, confusion matrices, and model weights."
+        }
+      ],
+      "learning_resources": [
+        { "name": "PyTorch Official Deep Learning Tutorials", "url": "https://pytorch.org/tutorials/", "type": "Documentation" },
+        { "name": "DeepLearning.AI Short Courses on LLMs & Generative AI", "url": "https://www.deeplearning.ai/", "type": "Documentation" },
+        { "name": "Andrej Karpathy - Neural Networks: Zero to Hero", "url": "https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ", "type": "YouTube" }
+      ]
+    },
+    {
+      "id": "frontend_developer",
+      "title": "Frontend Developer",
+      "domain": "Web Development & Client Architecture",
+      "description": "Builds high-performance, accessible, and responsive visual interfaces using modern component-driven libraries and JavaScript runtimes.",
+      "average_salary": "$85,000 - $120,000 / ₹6 - 16 LPA",
+      "market_demand": "High",
+      "learning_difficulty": "Beginner to Intermediate",
+      "required_skills": ["HTML", "CSS", "JavaScript", "React", "Responsive Design"],
+      "preferred_skills": ["TypeScript", "Tailwind CSS", "Next.js", "Git", "REST APIs", "Redux", "UI/UX Design"],
+      "programming_languages": ["JavaScript", "TypeScript", "HTML", "CSS"],
+      "tools_and_frameworks": ["React", "Next.js", "Tailwind CSS", "Vite", "Git", "Redux Toolkit"],
+      "knowledge_areas": ["Component Architecture", "DOM Manipulation", "CSS Flexbox & Grid", "Web Performance & Core Web Vitals"],
+      "relevant_interests": ["Web Development", "Software Development"],
+      "recommended_projects": [
+        {
+          "title": "Real-Time Stock & Crypto Portfolio Tracker",
+          "description": "Develop a React/TypeScript single page app consuming live WebSockets, rendering Chart.js graphs, with dark/light themes and local storage.",
+          "deliverable": "Hosted web app (Vercel/Netlify) with mobile responsiveness and clean code structure."
+        },
+        {
+          "title": "Modern Component Design System with Tailwind CSS",
+          "description": "Build an accessible, WCAG-compliant UI component library including modal dialogs, data tables, and toast notifications.",
+          "deliverable": "Storybook or demo web page showcasing interactive components."
+        }
+      ],
+      "learning_resources": [
+        { "name": "MDN Web Docs - HTML, CSS, JavaScript", "url": "https://developer.mozilla.org/en-US/", "type": "Documentation" },
+        { "name": "React Official Documentation", "url": "https://react.dev/", "type": "Documentation" },
+        { "name": "freeCodeCamp Frontend Development Playlist", "url": "https://www.youtube.com/watch?v=bMknfKXIFA8", "type": "YouTube" }
+      ]
+    },
+    {
+      "id": "backend_developer",
+      "title": "Backend Developer",
+      "domain": "Software Architecture & Server Systems",
+      "description": "Architects server-side logic, database schemas, authorization mechanisms, API gateways, and scalable microservices.",
+      "average_salary": "$95,000 - $130,000 / ₹7 - 18 LPA",
+      "market_demand": "Very High",
+      "learning_difficulty": "Intermediate",
+      "required_skills": ["SQL", "REST APIs", "Git", "Databases", "Python"],
+      "preferred_skills": ["Node.js", "PostgreSQL", "Docker", "Redis", "FastAPI", "Django", "Linux", "Microservices"],
+      "programming_languages": ["Python", "JavaScript", "SQL", "Go"],
+      "tools_and_frameworks": ["FastAPI", "Express", "PostgreSQL", "Docker", "Redis", "Git"],
+      "knowledge_areas": ["Database Normalization & Indexing", "API Security (JWT, OAuth)", "Caching Strategies", "Concurrency & Asynchronous I/O"],
+      "relevant_interests": ["Software Development", "Cloud Computing"],
+      "recommended_projects": [
+        {
+          "title": "Scalable RESTful E-Commerce API Gateway with JWT & Caching",
+          "description": "Design a modular REST API with user authentication, role-based access control, Redis caching for fast lookups, and PostgreSQL persistence.",
+          "deliverable": "Containerized backend repository with automated unit tests and OpenAPI specs."
+        },
+        {
+          "title": "Distributed Task Queue Worker with Redis and Celery",
+          "description": "Implement asynchronous background processing for email notifications and PDF generation.",
+          "deliverable": "Docker-compose stack running backend API, background workers, and Redis broker."
+        }
+      ],
+      "learning_resources": [
+        { "name": "FastAPI Official Tutorial", "url": "https://fastapi.tiangolo.com/tutorial/", "type": "Documentation" },
+        { "name": "Hussein Nasser - Backend Engineering Architecture", "url": "https://www.youtube.com/@hnasr", "type": "YouTube" },
+        { "name": "PostgreSQL Official Documentation", "url": "https://www.postgresql.org/docs/", "type": "Documentation" }
+      ]
+    },
+    {
+      "id": "fullstack_developer",
+      "title": "Full Stack Developer",
+      "domain": "Full-Stack Web & Application Engineering",
+      "description": "Possesses end-to-end expertise spanning responsive frontend user interfaces, backend API services, database design, and cloud deployments.",
+      "average_salary": "$100,000 - $140,000 / ₹8 - 20 LPA",
+      "market_demand": "Extremely High",
+      "learning_difficulty": "Intermediate to Advanced",
+      "required_skills": ["HTML", "CSS", "JavaScript", "React", "Node.js", "SQL", "Git"],
+      "preferred_skills": ["TypeScript", "Next.js", "MongoDB", "PostgreSQL", "Docker", "REST APIs", "Tailwind CSS"],
+      "programming_languages": ["JavaScript", "TypeScript", "SQL", "Python"],
+      "tools_and_frameworks": ["React", "Next.js", "Node.js", "Express", "Tailwind CSS", "MongoDB", "PostgreSQL", "Docker"],
+      "knowledge_areas": ["End-to-End Software Architecture", "State Management", "Relational & NoSQL Schema Design", "Deployment & CI/CD"],
+      "relevant_interests": ["Web Development", "Software Development"],
+      "recommended_projects": [
+        {
+          "title": "Full-Stack Project Management Kanban SaaS (Trello Clone)",
+          "description": "Develop a collaborative Kanban board with drag-and-drop cards, user workspaces, real-time board sync, and automated Postgres migrations.",
+          "deliverable": "Production deployed full-stack web application with repository and documentation."
+        },
+        {
+          "title": "Multi-Vendor Marketplace with Stripe Checkout",
+          "description": "Build an e-commerce platform with product catalogs, shopping carts, webhooks, and secure checkout processing.",
+          "deliverable": "Live full-stack application with admin management dashboard."
+        }
+      ],
+      "learning_resources": [
+        { "name": "The Odin Project - Full Stack JavaScript Curriculum", "url": "https://www.theodinproject.com/", "type": "Documentation" },
+        { "name": "Full Stack Open by University of Helsinki", "url": "https://fullstackopen.com/en/", "type": "Documentation" },
+        { "name": "Traversy Media Full Stack Tutorials", "url": "https://www.youtube.com/@TraversyMedia", "type": "YouTube" }
+      ]
+    },
+    {
+      "id": "python_developer",
+      "title": "Python Developer",
+      "domain": "Python Systems & Backend Engineering",
+      "description": "Specializes in building high-efficiency web services, automation scripts, data integration pipelines, and backend tools using idiomatic Python.",
+      "average_salary": "$90,000 - $125,000 / ₹6 - 16 LPA",
+      "market_demand": "High",
+      "learning_difficulty": "Beginner to Intermediate",
+      "required_skills": ["Python", "Flask", "Django", "SQL", "Git"],
+      "preferred_skills": ["FastAPI", "Pandas", "PostgreSQL", "Docker", "Linux", "REST APIs", "Data Structures"],
+      "programming_languages": ["Python", "SQL", "Bash"],
+      "tools_and_frameworks": ["Django", "Flask", "FastAPI", "SQLAlchemy", "PyTest", "Docker"],
+      "knowledge_areas": ["Object-Oriented Programming (OOP)", "Decorators & Generators", "Database ORMs & Migrations", "Web Scraping & Automation"],
+      "relevant_interests": ["Software Development", "Web Development", "Data Science"],
+      "recommended_projects": [
+        {
+          "title": "Automated Web Data Scraper & Aggregator Pipeline",
+          "description": "Build an asynchronous web scraping engine using BeautifulSoup and Playwright to extract price intelligence, store in PostgreSQL, and export clean reports.",
+          "deliverable": "Documented Python package with CLI flags, rate limiting, and automated tests."
+        },
+        {
+          "title": "Job Board Web Application with Django ORM",
+          "description": "Develop a multi-user job portal with recruiter dashboards, applicant tracking, email triggers, and custom Django admin panel.",
+          "deliverable": "Modular Django project repository with SQLite/PostgreSQL support."
+        }
+      ],
+      "learning_resources": [
+        { "name": "Official Python 3 Documentation", "url": "https://docs.python.org/3/", "type": "Documentation" },
+        { "name": "Corey Schafer Python Tutorial Series", "url": "https://www.youtube.com/@coreyms", "type": "YouTube" },
+        { "name": "Real Python Tutorials & Guides", "url": "https://realpython.com/", "type": "Documentation" }
+      ]
+    },
+    {
+      "id": "java_developer",
+      "title": "Java Developer",
+      "domain": "Enterprise Software & Backend Services",
+      "description": "Engineers mission-critical, enterprise-scale backend applications, banking software, and distributed microservices using Java and Spring Boot.",
+      "average_salary": "$95,000 - $135,000 / ₹7 - 18 LPA",
+      "market_demand": "High",
+      "learning_difficulty": "Intermediate",
+      "required_skills": ["Java", "SQL", "Data Structures", "Git", "OOP"],
+      "preferred_skills": ["Spring Boot", "Hibernate", "PostgreSQL", "Docker", "REST APIs", "Algorithms", "Microservices"],
+      "programming_languages": ["Java", "SQL"],
+      "tools_and_frameworks": ["Spring Boot", "Hibernate / JPA", "Maven / Gradle", "PostgreSQL", "Docker", "JUnit"],
+      "knowledge_areas": ["Object-Oriented Design & SOLID", "Multithreading & Concurrency", "Enterprise Design Patterns", "Dependency Injection"],
+      "relevant_interests": ["Software Development"],
+      "recommended_projects": [
+        {
+          "title": "Enterprise Banking & Ledger System in Spring Boot",
+          "description": "Develop a transactional banking API with ACID compliance, account transfers, pessimistic locking to prevent race conditions, and JPA persistence.",
+          "deliverable": "Spring Boot Maven application with JUnit tests and Swagger UI."
+        },
+        {
+          "title": "High-Performance In-Memory Cache in Core Java",
+          "description": "Implement a concurrent thread-safe Least Recently Used (LRU) cache with generics and eviction policies.",
+          "deliverable": "Pure Java library with unit benchmark tests."
+        }
+      ],
+      "learning_resources": [
+        { "name": "Baeldung Spring Boot & Java Guides", "url": "https://www.baeldung.com/", "type": "Documentation" },
+        { "name": "Java Brains Spring Boot Masterclass", "url": "https://www.youtube.com/@JavaBrainsChannel", "type": "YouTube" },
+        { "name": "Oracle Java Official Tutorials", "url": "https://docs.oracle.com/javase/tutorial/", "type": "Documentation" }
+      ]
+    },
+    {
+      "id": "software_engineer",
+      "title": "Software Engineer",
+      "domain": "Core Computer Science & Systems Engineering",
+      "description": "Applies rigorous algorithmic problem solving, software design principles, and systems architecture to build reliable, scalable computational software.",
+      "average_salary": "$100,000 - $145,000 / ₹8 - 22 LPA",
+      "market_demand": "Very High",
+      "learning_difficulty": "Intermediate to Advanced",
+      "required_skills": ["Data Structures", "Algorithms", "Java", "C++", "Python", "OOP", "Git"],
+      "preferred_skills": ["SQL", "Linux", "Design Patterns", "REST APIs", "Unit Testing", "Docker", "System Design"],
+      "programming_languages": ["C++", "Java", "Python", "SQL"],
+      "tools_and_frameworks": ["Git", "Linux", "Docker", "GDB", "Valgrind", "VS Code"],
+      "knowledge_areas": ["Time & Space Complexity (Big-O)", "Graph & Dynamic Programming Algorithms", "System Design Basics", "Design Patterns"],
+      "relevant_interests": ["Software Development", "Web Development"],
+      "recommended_projects": [
+        {
+          "title": "Custom High-Speed Database Storage Engine (B+ Tree)",
+          "description": "Implement a disk-backed B+ Tree key-value storage engine in C++ with indexing and node splitting.",
+          "deliverable": "C++ repository with unit test coverage and performance benchmarks."
+        },
+        {
+          "title": "Distributed URL Shortener System Design Implementation",
+          "description": "Build an optimized URL shortening service featuring base62 encoding, caching, and rate limiting.",
+          "deliverable": "Working software system with architecture diagram and stress test results."
+        }
+      ],
+      "learning_resources": [
+        { "name": "NeetCode DSA Roadmap & Explanations", "url": "https://neetcode.io/", "type": "YouTube" },
+        { "name": "GeeksforGeeks Data Structures & Algorithms", "url": "https://www.geeksforgeeks.org/data-structures/", "type": "Documentation" },
+        { "name": "Refactoring Guru - Design Patterns Guide", "url": "https://refactoring.guru/design-patterns", "type": "Documentation" }
+      ]
+    },
+    {
+      "id": "cybersecurity_analyst",
+      "title": "Cybersecurity Analyst",
+      "domain": "Information Security & Threat Analysis",
+      "description": "Safeguards corporate networks, cloud perimeters, and computer systems against digital attacks, intrusion attempts, data theft, and security vulnerabilities.",
+      "average_salary": "$88,000 - $125,000 / ₹6 - 18 LPA",
+      "market_demand": "High",
+      "learning_difficulty": "Intermediate",
+      "required_skills": ["Networking", "Linux", "Cybersecurity", "Python"],
+      "preferred_skills": ["Ethical Hacking", "Cryptography", "Wireshark", "Bash", "Security Auditing", "Cloud Security", "Git"],
+      "programming_languages": ["Python", "Bash", "SQL"],
+      "tools_and_frameworks": ["Wireshark", "Nmap", "Metasploit", "Burp Suite", "Kali Linux", "Linux"],
+      "knowledge_areas": ["TCP/IP Protocols & Port Scanning", "OWASP Top 10 Vulnerabilities", "Threat Detection & SIEM", "Cryptography & Public Key Infrastructure"],
+      "relevant_interests": ["Cybersecurity", "Software Development"],
+      "recommended_projects": [
+        {
+          "title": "Automated Port Scanner & Vulnerability Auditor",
+          "description": "Write a multi-threaded Python scanner that interrogates target IP networks for open ports, identifies banners, and flags misconfigured services.",
+          "deliverable": "Clean Python CLI security utility with reporting export."
+        },
+        {
+          "title": "Web Application Penetration Testing Lab Report",
+          "description": "Conduct a vulnerability assessment on a simulated lab environment identifying SQL Injection and XSS flaws.",
+          "deliverable": "Detailed vulnerability remediation report with proof-of-concept exploits."
+        }
+      ],
+      "learning_resources": [
+        { "name": "TryHackMe Pre-Security & Security Paths", "url": "https://tryhackme.com/", "type": "Documentation" },
+        { "name": "NetworkChuck Cybersecurity Series", "url": "https://www.youtube.com/@NetworkChuck", "type": "YouTube" },
+        { "name": "OWASP Top 10 Security Project", "url": "https://owasp.org/www-project-top-ten/", "type": "Documentation" }
+      ]
+    },
+    {
+      "id": "cloud_engineer",
+      "title": "Cloud Engineer",
+      "domain": "Cloud Infrastructure & Platform Architecture",
+      "description": "Plans, provisions, architects, and oversees scalable cloud computing services and storage environments across major hyperscalers.",
+      "average_salary": "$105,000 - $140,000 / ₹8 - 22 LPA",
+      "market_demand": "Very High",
+      "learning_difficulty": "Intermediate to Advanced",
+      "required_skills": ["Cloud Computing", "AWS", "Linux", "Docker", "Networking"],
+      "preferred_skills": ["Kubernetes", "Git", "Python", "CI/CD", "Terraform", "Azure", "GCP"],
+      "programming_languages": ["Python", "Bash", "YAML", "HCL"],
+      "tools_and_frameworks": ["AWS (EC2, S3, IAM, VPC, Lambda)", "Docker", "Terraform", "Linux", "Git"],
+      "knowledge_areas": ["Cloud Security & IAM Policies", "VPC Subnetting & Routing", "Serverless Computing", "High Availability & Disaster Recovery"],
+      "relevant_interests": ["Cloud Computing", "Software Development"],
+      "recommended_projects": [
+        {
+          "title": "High-Availability Multi-Tier Cloud Architecture in AWS",
+          "description": "Deploy a multi-AZ application architecture with Application Load Balancer, EC2 Auto Scaling groups, private database subnets, and S3 static storage.",
+          "deliverable": "Cloud architecture diagram and Terraform Infrastructure-as-Code scripts."
+        },
+        {
+          "title": "Serverless Microservice Pipeline using AWS Lambda & DynamoDB",
+          "description": "Build an event-driven serverless image thumbnail generator triggering on S3 uploads.",
+          "deliverable": "Serverless framework / AWS SAM deployment repository."
+        }
+      ],
+      "learning_resources": [
+        { "name": "AWS Certified Cloud Practitioner & SAA Training by Stephane Maarek", "url": "https://www.youtube.com/watch?v=SOTamWNgDKc", "type": "YouTube" },
+        { "name": "AWS Official Documentation", "url": "https://docs.aws.amazon.com/", "type": "Documentation" },
+        { "name": "Learn Terraform by HashiCorp", "url": "https://developer.hashicorp.com/terraform/tutorials", "type": "Documentation" }
+      ]
+    },
+    {
+      "id": "devops_engineer",
+      "title": "DevOps Engineer",
+      "domain": "DevOps, SRE & Continuous Delivery",
+      "description": "Automates the software delivery lifecycle, orchestrates containerized clusters, provisions Infrastructure as Code, and ensures 99.99% system reliability.",
+      "average_salary": "$110,000 - $150,000 / ₹9 - 24 LPA",
+      "market_demand": "Very High",
+      "learning_difficulty": "Advanced",
+      "required_skills": ["Docker", "Kubernetes", "Linux", "Git", "CI/CD"],
+      "preferred_skills": ["AWS", "Cloud Computing", "Python", "Bash", "Terraform", "Monitoring", "Networking"],
+      "programming_languages": ["Bash", "Python", "YAML", "Go"],
+      "tools_and_frameworks": ["Docker", "Kubernetes", "GitHub Actions", "Terraform", "Prometheus", "Grafana", "Linux"],
+      "knowledge_areas": ["Automated Build & Release Pipelines", "Container Orchestration & Scaling", "Infrastructure as Code (IaC)", "Observability & Alerting"],
+      "relevant_interests": ["Cloud Computing", "Software Development"],
+      "recommended_projects": [
+        {
+          "title": "End-to-End GitOps CI/CD Pipeline to Kubernetes Cluster",
+          "description": "Build an automated GitHub Actions pipeline that lints code, runs unit tests, builds Docker containers, scans for vulnerabilities, and deploys to a local Minikube/K8s cluster.",
+          "deliverable": "Complete GitHub repository with workflow YAML, Helm charts, and K8s manifests."
+        },
+        {
+          "title": "Full Observability Stack with Prometheus and Grafana",
+          "description": "Deploy Prometheus metrics collection and Grafana dashboards monitoring CPU, memory, and latency metrics for containerized microservices.",
+          "deliverable": "Docker Compose monitoring stack with pre-built Grafana dashboard templates."
+        }
+      ],
+      "learning_resources": [
+        { "name": "TechWorld with Nana DevOps Bootcamp", "url": "https://www.youtube.com/@TechWorldwithNana", "type": "YouTube" },
+        { "name": "Kubernetes Official Documentation", "url": "https://kubernetes.io/docs/home/", "type": "Documentation" },
+        { "name": "Docker Official Getting Started Guide", "url": "https://docs.docker.com/get-started/", "type": "Documentation" }
+      ]
+    },
+    {
+      "id": "database_administrator",
+      "title": "Database Administrator (DBA)",
+      "domain": "Data Management & Database Systems",
+      "description": "Oversees enterprise database integrity, schema architecture, performance tuning, automated backup strategies, and high-availability disaster recovery.",
+      "average_salary": "$90,000 - $130,000 / ₹7 - 17 LPA",
+      "market_demand": "High",
+      "learning_difficulty": "Intermediate",
+      "required_skills": ["SQL", "Databases", "PostgreSQL", "MySQL", "Linux"],
+      "preferred_skills": ["MongoDB", "Redis", "Python", "Bash", "Cloud Computing", "Git", "Statistics"],
+      "programming_languages": ["SQL", "PL/pgSQL", "Bash", "Python"],
+      "tools_and_frameworks": ["PostgreSQL", "MySQL", "MongoDB", "Redis", "pgAdmin", "Linux"],
+      "knowledge_areas": ["Index Optimization & EXPLAIN Query Tuning", "ACID Transactions & Isolation Levels", "Replication & Sharding", "Automated Backup & Point-in-Time Recovery"],
+      "relevant_interests": ["Data Analytics", "Software Development", "Cloud Computing"],
+      "recommended_projects": [
+        {
+          "title": "High-Volume Database Benchmarking & Query Optimization",
+          "description": "Generate 1,000,000 synthetic records, analyze slow query execution plans using EXPLAIN ANALYZE, and benchmark performance improvements before and after composite indexing.",
+          "deliverable": "Comprehensive SQL optimization report with performance metric graphs."
+        },
+        {
+          "title": "Automated Master-Replica Failover and Backup Pipeline",
+          "description": "Configure streaming replication between primary and standby database instances with automated bash backup scripts.",
+          "deliverable": "Docker-composed multi-node replication environment with automated failover scripts."
+        }
+      ],
+      "learning_resources": [
+        { "name": "Use The Index, Luke! - Database Performance Tuning", "url": "https://use-the-index-luke.com/", "type": "Documentation" },
+        { "name": "PostgreSQL Administration Documentation", "url": "https://www.postgresql.org/docs/current/admin.html", "type": "Documentation" },
+        { "name": "MySQL Performance Tuning Best Practices", "url": "https://dev.mysql.com/doc/refman/8.0/en/optimization.html", "type": "Documentation" }
+      ]
+    },
+    {
+      "id": "ui_ux_developer",
+      "title": "UI/UX Developer",
+      "domain": "User Interface & Experience Engineering",
+      "description": "Bridges visual design and frontend coding by creating intuitive, accessible, and delightful interactive user journeys with Figma and modern web technologies.",
+      "average_salary": "$82,000 - $118,000 / ₹6 - 15 LPA",
+      "market_demand": "High",
+      "learning_difficulty": "Beginner to Intermediate",
+      "required_skills": ["HTML", "CSS", "JavaScript", "Responsive Design", "UI/UX Design"],
+      "preferred_skills": ["React", "Tailwind CSS", "Figma", "Git", "Design Patterns"],
+      "programming_languages": ["HTML", "CSS", "JavaScript"],
+      "tools_and_frameworks": ["Figma", "Tailwind CSS", "React", "Adobe XD", "Git"],
+      "knowledge_areas": ["Wireframing & High-Fidelity Prototyping", "Design Systems & Typography", "User Research & Usability Testing", "Accessibility (WCAG) Standards"],
+      "relevant_interests": ["Web Development", "Software Development"],
+      "recommended_projects": [
+        {
+          "title": "End-to-End Fintech Mobile App Design & Prototype",
+          "description": "Conduct user research, design wireframes and high-fidelity clickable prototypes in Figma, and build the interactive frontend components in HTML/CSS/Tailwind.",
+          "deliverable": "Public Figma prototype link and responsive web component implementation."
+        },
+        {
+          "title": "Accessible SaaS Dashboard Redesign & Usability Audit",
+          "description": "Perform an accessibility audit on an existing web app, redesign layout for cognitive ease, and implement micro-animations.",
+          "deliverable": "Case study document showcasing before/after user journey flows and live demo."
+        }
+      ],
+      "learning_resources": [
+        { "name": "Figma Official Design Tutorials", "url": "https://www.youtube.com/@Figma", "type": "YouTube" },
+        { "name": "Nielsen Norman Group UX Articles", "url": "https://www.nngroup.com/articles/", "type": "Documentation" },
+        { "name": "Refactoring UI by Adam Wathan & Steve Schoger", "url": "https://www.refactoringui.com/", "type": "Documentation" }
+      ]
+    }
+  ]
+}

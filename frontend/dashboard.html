@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard | CareerAI</title>
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Chart.js Local Library -->
+  <script src="/js/chart.min.js"></script>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/chatbot.css">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <a href="/" class="nav-brand">
+      <div class="brand-icon">
+        <i class="fas fa-brain"></i>
+      </div>
+      <span>CareerAI</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="/profile" class="nav-link"><i class="fas fa-user-edit"></i> Profile & Resume</a></li>
+      <li><a href="/dashboard" class="nav-link active"><i class="fas fa-th-large"></i> Dashboard</a></li>
+      <li><a href="/recommendations" class="nav-link"><i class="fas fa-chart-pie"></i> Recommendations</a></li>
+      <li><a href="/skill-gap" class="nav-link"><i class="fas fa-puzzle-piece"></i> Skill Gap</a></li>
+      <li><a href="/roadmap" class="nav-link"><i class="fas fa-road"></i> Roadmap</a></li>
+    </ul>
+
+    <div id="nav-student-badge"></div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    <div class="page-header">
+      <h1 class="page-title">Student Career Dashboard</h1>
+      <p class="page-subtitle">Track your career alignment, review your technical profile, inspect skill coverage, and execute your roadmap.</p>
+    </div>
+
+    <!-- Loading State -->
+    <div id="dash-loading" style="text-align: center; padding: 4rem 0;">
+      <i class="fas fa-spinner fa-spin" style="font-size: 2.5rem; color: var(--maroon); margin-bottom: 1rem;"></i>
+      <p style="color: var(--text-muted);">Loading student profile and recommendation analytics...</p>
+    </div>
+
+    <!-- Empty State -->
+    <div id="dash-empty" style="display: none; text-align: center; padding: 4rem 1.5rem; background: #ffffff; border: 1px solid var(--border-color); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+      <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--maroon-subtle); color: var(--maroon); font-size: 2.5rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+        <i class="fas fa-user-plus"></i>
+      </div>
+      <h3 style="color: var(--text-main); font-size: 1.5rem; margin-bottom: 0.75rem;">No Student Profile Found</h3>
+      <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 2rem;">
+        You haven't set up your student profile yet. Enter your technical skills or upload your resume to generate intelligent recommendations.
+      </p>
+      <a href="/profile" class="btn btn-primary btn-lg">
+        <i class="fas fa-rocket"></i> Create Student Profile Now
+      </a>
+    </div>
+
+    <!-- Content State -->
+    <div id="dash-content" style="display: none;">
+      
+      <!-- Student Bio Card -->
+      <div class="form-card" style="border-left: 5px solid var(--maroon); margin-bottom: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--maroon), var(--maroon-light)); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: #ffffff; box-shadow: 0 4px 10px var(--maroon-glow);">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <div>
+              <h2 id="dash-student-name" style="color: var(--maroon); font-size: 1.5rem; font-weight: 800;">Student Name</h2>
+              <span id="dash-student-branch" style="color: var(--blue-primary); font-size: 0.95rem; font-weight: 700;">Branch</span>
+            </div>
+          </div>
+          <a href="/profile" class="btn btn-sm btn-outline"><i class="fas fa-edit"></i> Edit Profile</a>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1.5rem; background: var(--bg-main); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+          <div><i class="fas fa-university" style="width: 20px; color: var(--maroon);"></i> <span id="dash-student-college">College</span></div>
+          <div><i class="fas fa-calendar-alt" style="width: 20px; color: var(--blue-primary);"></i> <span id="dash-student-sem">Semester</span> • <span id="dash-student-grad">Graduation</span></div>
+          <div><i class="fas fa-briefcase" style="width: 20px; color: var(--yellow-dark);"></i> <span id="dash-student-pref">Preferences</span></div>
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+          <span style="font-size: 0.8rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">Technical Skills</span>
+          <div id="dash-skills-chips" style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem;"></div>
+        </div>
+
+        <div>
+          <span style="font-size: 0.8rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">Domain Interests</span>
+          <div id="dash-interests-chips" style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem;"></div>
+        </div>
+      </div>
+
+      <!-- Top 3 Recommendations Cards Grid -->
+      <div style="margin-bottom: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--maroon);">
+            <i class="fas fa-award" style="color: var(--yellow-dark);"></i> Top 3 Career Recommendations
+          </h3>
+          <a href="/recommendations" class="btn btn-sm btn-secondary">
+            View All 15 Careers <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+        <div id="dash-top3-grid" class="career-cards-grid"></div>
+      </div>
+
+      <!-- Bottom Row: Skill Coverage & Learning Progress Overview -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem;">
+        
+        <!-- Skill Coverage Chart Card -->
+        <div class="form-card" style="margin-bottom: 0;">
+          <div class="form-section-title">
+            <i class="fas fa-chart-pie" style="color: var(--success);"></i>
+            <span>Skill Coverage Diagnostics</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Breakdown for your #1 career match.
+          </p>
+
+          <div style="position: relative; height: 180px; width: 100%; margin-bottom: 1rem;">
+            <canvas id="dash-coverage-chart"></canvas>
+          </div>
+
+          <div style="display: flex; justify-content: space-around; text-align: center; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+            <div>
+              <div id="dash-known-count" style="font-size: 1.4rem; font-weight: 800; color: var(--success);">0</div>
+              <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted);">Known</span>
+            </div>
+            <div>
+              <div id="dash-partial-count" style="font-size: 1.4rem; font-weight: 800; color: var(--warning);">0</div>
+              <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted);">Partial</span>
+            </div>
+            <div>
+              <div id="dash-missing-count" style="font-size: 1.4rem; font-weight: 800; color: var(--danger);">0</div>
+              <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted);">Missing</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Learning Progress Overview Card -->
+        <div class="form-card" style="margin-bottom: 0; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="form-section-title">
+              <i class="fas fa-tasks" style="color: var(--maroon);"></i>
+              <span>Learning Roadmap Progress</span>
+            </div>
+            <h4 id="dash-roadmap-role-title" style="font-size: 1.25rem; font-weight: 800; color: var(--maroon); margin-bottom: 0.35rem;">
+              Target Roadmap
+            </h4>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+              <span id="dash-roadmap-tasks" style="font-size: 0.88rem; color: var(--text-muted); font-weight: 600;">0 of 16 Tasks Completed</span>
+              <span id="dash-roadmap-pct" style="font-size: 1.4rem; font-weight: 800; color: var(--maroon);">0%</span>
+            </div>
+            <div class="progress-container" style="height: 10px; margin-bottom: 1.5rem;">
+              <div id="dash-roadmap-bar" class="progress-fill" style="width: 0%; background: linear-gradient(90deg, var(--maroon), var(--purple-accent));"></div>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5;">
+              Execute your structured 4-month milestones, access curated documentation and YouTube tutorials, and complete practical projects.
+            </p>
+          </div>
+
+          <div style="margin-top: 1.5rem;">
+            <a id="dash-btn-roadmap" href="/roadmap" class="btn btn-primary btn-block">
+              <i class="fas fa-road"></i> Open Learning Roadmap
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 AI Career Guidance System. Built with Python Flask, Scikit-Learn, SQLite, and Chart.js.</p>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/dashboard.js"></script>
+  <script src="/js/chatbot.js"></script>
+</body>
+</html>

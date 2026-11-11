@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Roadmap & Checklist | CareerAI</title>
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/chatbot.css">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <a href="/" class="nav-brand">
+      <div class="brand-icon">
+        <i class="fas fa-brain"></i>
+      </div>
+      <span>CareerAI</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="/profile" class="nav-link"><i class="fas fa-user-edit"></i> Profile & Resume</a></li>
+      <li><a href="/dashboard" class="nav-link"><i class="fas fa-th-large"></i> Dashboard</a></li>
+      <li><a href="/recommendations" class="nav-link"><i class="fas fa-chart-pie"></i> Recommendations</a></li>
+      <li><a href="/skill-gap" class="nav-link"><i class="fas fa-puzzle-piece"></i> Skill Gap</a></li>
+      <li><a href="/roadmap" class="nav-link active"><i class="fas fa-road"></i> Roadmap</a></li>
+    </ul>
+
+    <div id="nav-student-badge"></div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    <div class="page-header">
+      <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--maroon-subtle); color: var(--maroon); border: 1px solid #fecaca; padding: 0.35rem 0.9rem; border-radius: 99px; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.75rem;">
+        <i class="fas fa-calendar-alt"></i> 4-Month Actionable Milestones
+      </div>
+      <h1 class="page-title">Personalized Learning Roadmap</h1>
+      <p class="page-subtitle">
+        A structured month-by-month curriculum customized to your missing skills. Includes free official documentation, YouTube tutorials, practical assignments, and an interactive checklist.
+      </p>
+    </div>
+
+    <!-- Role Switcher Tabs (All 15 roles) -->
+    <div style="margin-bottom: 2rem;">
+      <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">
+        Select Career Role Roadmap (15 Available):
+      </span>
+      <div id="roadmap-tabs-container" class="gap-tabs"></div>
+    </div>
+
+    <!-- Loading State -->
+    <div id="roadmap-loading" style="text-align: center; padding: 4rem 0;">
+      <i class="fas fa-spinner fa-spin" style="font-size: 2.5rem; color: var(--maroon); margin-bottom: 1rem;"></i>
+      <p style="color: var(--text-muted);">Generating milestone roadmap and curating resources...</p>
+    </div>
+
+    <!-- Roadmap Content State -->
+    <div id="roadmap-content" style="display: none;">
+      
+      <!-- Overall Progress Card -->
+      <div class="form-card" style="margin-bottom: 2.5rem; border-top: 5px solid var(--maroon);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <span style="font-size: 0.82rem; font-weight: 800; color: var(--maroon); text-transform: uppercase;">
+              Active Career Roadmap
+            </span>
+            <h2 id="roadmap-role-title" style="color: var(--maroon); font-size: 2rem; font-weight: 800;">Role Title</h2>
+          </div>
+          <div style="text-align: right;">
+            <div id="overall-progress-text" style="font-size: 2.2rem; font-weight: 800; color: var(--maroon);">0%</div>
+            <div id="completed-tasks-count" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">0 Tasks Completed</div>
+          </div>
+        </div>
+
+        <div class="progress-container" style="height: 12px; margin-bottom: 1rem;">
+          <div id="overall-progress-bar" class="progress-fill" style="width: 0%; background: linear-gradient(90deg, var(--maroon), var(--purple-accent));"></div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted); flex-wrap: wrap; gap: 0.5rem;">
+          <span><i class="fas fa-calendar-check" style="color: var(--blue-primary);"></i> 4 Month Targeted Curriculum</span>
+          <span><i class="fas fa-clock" style="color: var(--yellow-dark);"></i> Weekly Commitment: <strong id="roadmap-hours" style="color: var(--text-main);">12 hrs/week</strong></span>
+          <span><i class="fas fa-database" style="color: var(--maroon);"></i> SQLite Progress Persistence: <strong>Active</strong></span>
+        </div>
+      </div>
+
+      <!-- 4 Monthly Milestones Timeline Container -->
+      <div id="roadmap-milestones-container" class="roadmap-timeline"></div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 AI Career Guidance System. Built with Python Flask, Scikit-Learn, SQLite, and Chart.js.</p>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/roadmap.js"></script>
+  <script src="/js/chatbot.js"></script>
+</body>
+</html>

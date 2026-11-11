@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Sign In & Registration | CareerAI</title>
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/chatbot.css">
+  <style>
+    .auth-container {
+      max-width: 480px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+    .auth-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+    .auth-tabs {
+      display: flex;
+      border-bottom: 2px solid var(--border-color);
+      background: var(--bg-card-alt);
+    }
+    .auth-tab-btn {
+      flex: 1;
+      padding: 1rem;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+    }
+    .auth-tab-btn:hover {
+      color: var(--maroon);
+    }
+    .auth-tab-btn.active {
+      background: #ffffff;
+      color: var(--maroon);
+      border-bottom-color: var(--maroon);
+    }
+    .auth-body {
+      padding: 2.25rem 2rem;
+    }
+    .auth-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--maroon);
+      margin-bottom: 0.4rem;
+      text-align: center;
+    }
+    .auth-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      text-align: center;
+      margin-bottom: 1.75rem;
+    }
+    .auth-alert {
+      display: none;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      margin-bottom: 1.25rem;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .auth-alert.alert-error {
+      display: flex;
+      background: #fee2e2;
+      border: 1px solid #fca5a5;
+      color: #991b1b;
+    }
+    .auth-alert.alert-success {
+      display: flex;
+      background: var(--success-light);
+      border: 1px solid #86efac;
+      color: var(--success);
+    }
+    .form-icon-input {
+      position: relative;
+    }
+    .form-icon-input i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+    .form-icon-input .form-input {
+      padding-left: 2.6rem;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <a href="/" class="nav-brand">
+      <div class="brand-icon">
+        <i class="fas fa-brain"></i>
+      </div>
+      <span>CareerAI</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="/profile" class="nav-link"><i class="fas fa-user-edit"></i> Profile & Resume</a></li>
+      <li><a href="/dashboard" class="nav-link"><i class="fas fa-th-large"></i> Dashboard</a></li>
+      <li><a href="/recommendations" class="nav-link"><i class="fas fa-chart-pie"></i> Recommendations</a></li>
+      <li><a href="/skill-gap" class="nav-link"><i class="fas fa-puzzle-piece"></i> Skill Gap</a></li>
+      <li><a href="/roadmap" class="nav-link"><i class="fas fa-road"></i> Roadmap</a></li>
+    </ul>
+
+    <div id="nav-student-badge"></div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="auth-container">
+      
+      <div class="auth-card">
+        <!-- Tab Switcher -->
+        <div class="auth-tabs">
+          <button type="button" class="auth-tab-btn active" id="tab-login-btn" onclick="switchTab('login')">
+            <i class="fas fa-sign-in-alt"></i> Sign In
+          </button>
+          <button type="button" class="auth-tab-btn" id="tab-register-btn" onclick="switchTab('register')">
+            <i class="fas fa-user-plus"></i> Create Account
+          </button>
+        </div>
+
+        <div class="auth-body">
+          <div id="auth-alert" class="auth-alert"></div>
+
+          <!-- 1. SIGN IN FORM -->
+          <form id="login-form">
+            <h2 class="auth-title">Welcome Back</h2>
+            <p class="auth-subtitle">Sign in to access your saved student profile, career matches, and learning roadmap.</p>
+
+            <div class="form-group">
+              <label class="form-label" for="login-username">
+                <span>Username or Email <strong style="color: #ef4444;">*</strong></span>
+              </label>
+              <div class="form-icon-input">
+                <i class="fas fa-user"></i>
+                <input type="text" id="login-username" class="form-input" placeholder="e.g. aarav_sharma or student@domain.com" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="login-password">
+                <span>Password <strong style="color: #ef4444;">*</strong></span>
+              </label>
+              <div class="form-icon-input">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="login-password" class="form-input" placeholder="Enter your password" required />
+              </div>
+            </div>
+
+            <div style="margin-top: 1.75rem;">
+              <button type="submit" id="btn-login-submit" class="btn btn-primary btn-block btn-lg">
+                <i class="fas fa-sign-in-alt"></i> Sign In to CareerAI
+              </button>
+            </div>
+
+            <div style="text-align: center; margin-top: 1.5rem; font-size: 0.88rem; color: var(--text-secondary);">
+              Don't have an account yet? 
+              <a href="javascript:void(0)" onclick="switchTab('register')" style="color: var(--maroon); font-weight: 700; text-decoration: underline;">
+                Create one now
+              </a>
+            </div>
+          </form>
+
+          <!-- 2. REGISTRATION FORM (Username, Password, Email, D.O.B) -->
+          <form id="register-form" style="display: none;">
+            <h2 class="auth-title">Create Student Account</h2>
+            <p class="auth-subtitle">Register to unlock personalized AI career recommendations and custom roadmaps.</p>
+
+            <!-- User Name -->
+            <div class="form-group">
+              <label class="form-label" for="reg-username">
+                <span>User Name <strong style="color: #ef4444;">*</strong></span>
+              </label>
+              <div class="form-icon-input">
+                <i class="fas fa-user-tag"></i>
+                <input type="text" id="reg-username" class="form-input" placeholder="e.g. karan_gupta" minlength="3" required />
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label class="form-label" for="reg-email">
+                <span>Email Address <strong style="color: #ef4444;">*</strong></span>
+              </label>
+              <div class="form-icon-input">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="reg-email" class="form-input" placeholder="e.g. karan@example.com" required />
+              </div>
+            </div>
+
+            <!-- Date of Birth (D.O.B) -->
+            <div class="form-group">
+              <label class="form-label" for="reg-dob">
+                <span>Date of Birth (D.O.B) <strong style="color: #ef4444;">*</strong></span>
+              </label>
+              <div class="form-icon-input">
+                <i class="fas fa-calendar-alt"></i>
+                <input type="date" id="reg-dob" class="form-input" max="2012-12-31" min="1980-01-01" required />
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+              <label class="form-label" for="reg-password">
+                <span>Password <strong style="color: #ef4444;">*</strong> <span class="hint">(Min. 6 chars)</span></span>
+              </label>
+              <div class="form-icon-input">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="reg-password" class="form-input" placeholder="Create a strong password" minlength="6" required />
+              </div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+              <label class="form-label" for="reg-password-confirm">
+                <span>Confirm Password <strong style="color: #ef4444;">*</strong></span>
+              </label>
+              <div class="form-icon-input">
+                <i class="fas fa-shield-alt"></i>
+                <input type="password" id="reg-password-confirm" class="form-input" placeholder="Re-enter your password" required />
+              </div>
+            </div>
+
+            <div style="margin-top: 1.75rem;">
+              <button type="submit" id="btn-register-submit" class="btn btn-primary btn-block btn-lg">
+                <i class="fas fa-user-check"></i> Register & Continue
+              </button>
+            </div>
+
+            <div style="text-align: center; margin-top: 1.5rem; font-size: 0.88rem; color: var(--text-secondary);">
+              Already have an account? 
+              <a href="javascript:void(0)" onclick="switchTab('login')" style="color: var(--maroon); font-weight: 700; text-decoration: underline;">
+                Sign in here
+              </a>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 AI Career Guidance System. Built with Python Flask, Scikit-Learn, SQLite, and Chart.js.</p>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/chatbot.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>
