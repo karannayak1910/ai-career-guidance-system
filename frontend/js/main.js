@@ -133,6 +133,8 @@ function highlightActiveNav() {
 }
 
 // Mobile Access Modal
+const RENDER_CLOUD_URL = 'https://ai-career-guidance-system-fm0s.onrender.com/';
+
 window.openMobileModal = async function() {
   let modal = document.getElementById('mobile-access-modal');
   if (!modal) {
@@ -149,24 +151,24 @@ window.openMobileModal = async function() {
         </div>
         <div class="modal-body" style="padding: 1.5rem;">
           <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 1rem;">
-            Scan this QR code with your phone camera or use the links below:
+            Scan this QR code with your phone camera or open the 24/7 link below:
           </p>
-          <div id="mobile-qr-loading" style="padding: 1.5rem; color: var(--text-muted);">
+          <div id="mobile-qr-loading" style="padding: 1.5rem; color: var(--text-muted); display: none;">
             <i class="fas fa-spinner fa-spin fa-2x" style="color: var(--maroon);"></i>
             <p style="font-size: 0.85rem; margin-top: 0.5rem;">Generating QR Code...</p>
           </div>
-          <div id="mobile-qr-wrapper" style="display: none; margin-bottom: 1.25rem;">
-            <img id="mobile-qr-img" src="" alt="Mobile QR Code" style="width: 200px; height: 200px; border-radius: 12px; border: 2px solid var(--border-color); box-shadow: var(--shadow-sm); margin: 0 auto; display: block;" />
+          <div id="mobile-qr-wrapper" style="margin-bottom: 1.25rem;">
+            <img id="mobile-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fai-career-guidance-system-fm0s.onrender.com%2F" alt="Mobile QR Code" style="width: 200px; height: 200px; border-radius: 12px; border: 2px solid var(--border-color); box-shadow: var(--shadow-sm); margin: 0 auto; display: block;" />
           </div>
-          <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; padding: 0.75rem; text-align: left; margin-bottom: 0.75rem;">
+          <div style="background: var(--bg-main); border: 1.5px solid var(--maroon); border-radius: 8px; padding: 0.85rem; text-align: left; margin-bottom: 0.75rem;">
             <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--maroon); margin-bottom: 0.25rem;">
-              <i class="fas fa-globe"></i> Direct Mobile Link (Works on Any Network / 4G / 5G)
+              <i class="fas fa-globe"></i> 24/7 Mobile Cloud Link (Works on Any Phone / Network)
             </div>
-            <a id="mobile-tunnel-link" href="#" target="_blank" style="font-family: monospace; font-size: 0.82rem; color: var(--blue-primary); word-break: break-all; font-weight: 600;">
-              Loading...
+            <a id="mobile-tunnel-link" href="${RENDER_CLOUD_URL}" target="_blank" style="font-family: monospace; font-size: 0.85rem; color: var(--blue-primary); word-break: break-all; font-weight: 700;">
+              ${RENDER_CLOUD_URL}
             </a>
           </div>
-          <div style="background: var(--light-yellow-surface); border: 1px solid #fde68a; border-radius: 8px; padding: 0.75rem; text-align: left; margin-bottom: 1.25rem;">
+          <div id="mobile-lan-box" style="background: var(--light-yellow-surface); border: 1px solid #fde68a; border-radius: 8px; padding: 0.75rem; text-align: left; margin-bottom: 1.25rem; display: none;">
             <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--yellow-dark); margin-bottom: 0.25rem;">
               <i class="fas fa-wifi"></i> Local Wi-Fi Link
             </div>
@@ -184,6 +186,8 @@ window.openMobileModal = async function() {
   }
 
   modal.classList.add('active');
+  window._activeMobileUrl = RENDER_CLOUD_URL;
+
   try {
     const res = await fetch('/api/system/network-info');
     const data = await res.json();
@@ -191,31 +195,26 @@ window.openMobileModal = async function() {
       const qrImg = document.getElementById('mobile-qr-img');
       const tunnelLink = document.getElementById('mobile-tunnel-link');
       const lanLink = document.getElementById('mobile-lan-link');
-      const loading = document.getElementById('mobile-qr-loading');
-      const wrapper = document.getElementById('mobile-qr-wrapper');
+      const lanBox = document.getElementById('mobile-lan-box');
 
-      const preferredUrl = data.tunnel_url || data.lan_url;
-      qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(preferredUrl)}`;
-      qrImg.onload = () => {
-        if (loading) loading.style.display = 'none';
-        if (wrapper) wrapper.style.display = 'block';
-      };
-      qrImg.onerror = () => {
-        if (loading) loading.style.display = 'none';
-        if (wrapper) wrapper.style.display = 'none';
-      };
-      if (tunnelLink) {
-        tunnelLink.href = data.tunnel_url;
-        tunnelLink.textContent = data.tunnel_url;
+      const mobileUrl = data.mobile_url || data.cloud_url || RENDER_CLOUD_URL;
+      window._activeMobileUrl = mobileUrl;
+
+      if (qrImg) {
+        qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(mobileUrl)}`;
       }
-      if (lanLink) {
+      if (tunnelLink) {
+        tunnelLink.href = mobileUrl;
+        tunnelLink.textContent = mobileUrl;
+      }
+      if (data.lan_url && data.lan_url !== mobileUrl && lanLink && lanBox) {
         lanLink.href = data.lan_url;
         lanLink.textContent = data.lan_url;
+        lanBox.style.display = 'block';
       }
-      window._activeMobileUrl = preferredUrl;
     }
   } catch (e) {
-    console.error(e);
+    console.warn('Network info fallback:', e);
   }
 };
 
@@ -225,7 +224,7 @@ window.closeMobileModal = function() {
 };
 
 window.copyMobileLink = function() {
-  const url = window._activeMobileUrl || window.location.href;
+  const url = window._activeMobileUrl || RENDER_CLOUD_URL;
   navigator.clipboard.writeText(url).then(() => {
     showToast('Mobile link copied to clipboard!', 'success');
   }).catch(() => {

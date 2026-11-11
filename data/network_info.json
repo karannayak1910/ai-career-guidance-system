@@ -1,9 +1,11 @@
 {
   "status": "success",
-  "lan_ip": "192.168.0.8",
-  "port": 5000,
+  "cloud_url": "https://ai-career-guidance-system-fm0s.onrender.com/",
+  "mobile_url": "https://ai-career-guidance-system-fm0s.onrender.com/",
+  "tunnel_url": "https://ai-career-guidance-system-fm0s.onrender.com/",
+  "qr_code_url": "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A%2F%2Fai-career-guidance-system-fm0s.onrender.com%2F",
   "local_url": "http://127.0.0.1:5000",
   "lan_url": "http://192.168.0.8:5000",
-  "tunnel_url": "https://these-adventures-read-der.trycloudflare.com",
-  "qr_code_url": "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https://these-adventures-read-der.trycloudflare.com"
+  "lan_ip": "192.168.0.8",
+  "port": 5000
 }

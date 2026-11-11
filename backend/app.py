@@ -87,15 +87,9 @@ def health_check():
 
 @app.route("/api/system/network-info", methods=["GET"])
 def network_info():
-    import json
-    info_file = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data", "network_info.json"))
-    if os.path.exists(info_file):
-        try:
-            with open(info_file, "r", encoding="utf-8") as f:
-                data = json.load(f)
-                return jsonify(data), 200
-        except Exception:
-            pass
+    official_cloud_url = os.environ.get("RENDER_EXTERNAL_URL") or "https://ai-career-guidance-system-fm0s.onrender.com/"
+    if not official_cloud_url.endswith("/"):
+        official_cloud_url += "/"
 
     import socket
     try:
@@ -105,16 +99,28 @@ def network_info():
         s.close()
     except Exception:
         lan_ip = "127.0.0.1"
-    
-    return jsonify({
+
+    data = {
         "status": "success",
-        "lan_ip": lan_ip,
-        "port": 5000,
+        "cloud_url": official_cloud_url,
+        "mobile_url": official_cloud_url,
+        "tunnel_url": official_cloud_url,
         "local_url": "http://127.0.0.1:5000",
         "lan_url": f"http://{lan_ip}:5000",
-        "tunnel_url": f"http://{lan_ip}:5000",
-        "qr_code_url": f"https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=http://{lan_ip}:5000"
-    }), 200
+        "lan_ip": lan_ip,
+        "port": 5000,
+        "qr_code_url": f"https://api.qrserver.com/v1/create-qr-code/?size=240x240&data={official_cloud_url}"
+    }
+
+    info_file = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data", "network_info.json"))
+    try:
+        os.makedirs(os.path.dirname(info_file), exist_ok=True)
+        with open(info_file, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+    except Exception:
+        pass
+
+    return jsonify(data), 200
 
 # Error handlers
 @app.errorhandler(404)

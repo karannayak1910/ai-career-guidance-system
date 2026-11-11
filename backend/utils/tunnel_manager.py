@@ -28,9 +28,11 @@ def get_lan_ip():
 
 def save_network_info(tunnel_url=None):
     lan_ip = get_lan_ip()
-    chosen_url = tunnel_url if tunnel_url else f"http://{lan_ip}:5000"
+    chosen_url = tunnel_url if tunnel_url else "https://ai-career-guidance-system-fm0s.onrender.com/"
     data = {
         "status": "success",
+        "cloud_url": "https://ai-career-guidance-system-fm0s.onrender.com/",
+        "mobile_url": chosen_url,
         "lan_ip": lan_ip,
         "port": 5000,
         "local_url": "http://127.0.0.1:5000",

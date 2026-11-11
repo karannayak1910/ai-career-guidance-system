@@ -3,6 +3,7 @@
 An intelligent AI-powered platform designed to help students choose the right career path based on their skills, academic background, and interests.
 
 > 🌐 **Live Cloud Deployment (24/7):** [https://ai-career-guidance-system-fm0s.onrender.com](https://ai-career-guidance-system-fm0s.onrender.com)  
+> 📱 **Direct Mobile Link (All Devices):** [https://ai-career-guidance-system-fm0s.onrender.com/](https://ai-career-guidance-system-fm0s.onrender.com/)  
 > 🐙 **GitHub Repository:** [https://github.com/karannayak1910/ai-career-guidance-system](https://github.com/karannayak1910/ai-career-guidance-system)
 
 ### Key Features

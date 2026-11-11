@@ -41,11 +41,12 @@ if __name__ == "__main__":
     print("🚀 AI Career Guidance System is running!")
     print(f"📍 External / Desktop Browser:  http://127.0.0.1:{port}")
     print(f"📍 Localhost Browser:           http://localhost:{port}")
+    print("📱 24/7 Cloud & Mobile Link:    https://ai-career-guidance-system-fm0s.onrender.com/")
     print(f"📱 Mobile Phone (Local Wi-Fi):  http://{lan_ip}:{port}")
     print("=" * 70)
     print("💡 Mobile Phone Access:")
+    print("   • Live Cloud (Any Device / Any Network): https://ai-career-guidance-system-fm0s.onrender.com/")
     print(f"   • On Local Wi-Fi: open http://{lan_ip}:{port}")
-    print(f"   • On Mobile Data / Any Network: use the live tunnel link printed below")
     print("=" * 70 + "\n")
     
     # Bind to 0.0.0.0 to enable access from internal/external browsers and mobile phones
