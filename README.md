@@ -262,8 +262,8 @@ python run.py
 ```
 
 ### 4. Open in Your Browser
-- **Primary Local URL**: [http://127.0.0.1:5000](http://127.0.0.1:5000)
-- **Localhost URL**: [http://localhost:5000](http://localhost:5000)
+- **Primary Local URL**: [https://ai-career-guidance-system-fm0s.onrender.com/](https://ai-career-guidance-system-fm0s.onrender.com/)
+- **Localhost URL**: [https://ai-career-guidance-system-fm0s.onrender.com/](https://ai-career-guidance-system-fm0s.onrender.com/)
 
 ---
 
