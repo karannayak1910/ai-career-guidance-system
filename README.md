@@ -1,8 +1,33 @@
-# AI Career Guidance System
+# AI Career Guidance System 🎯
 
-An intelligent, full-stack career navigation and skill recommendation platform that analyzes students' academic backgrounds, technical competencies, personal interests, and career preferences to recommend the most suitable technology career paths.
+An intelligent AI-powered platform designed to help students choose the right career path based on their skills, academic background, and interests.
 
-Powered by a **Hybrid AI Recommendation Engine** combining **Scikit-Learn Decision Tree classification**, **Rule-based deductive reasoning**, and **multi-factor weighted similarity matching**, paired with automated **PDF/DOCX Resume Ingestion**, **Skill Gap Diagnostics**, a **4-Month Actionable Learning Roadmap**, and an interactive **CareerAI Advisor Chatbot**.
+> 🌐 **Live Cloud Deployment (24/7):** [https://ai-career-guidance-system-fm0s.onrender.com](https://ai-career-guidance-system-fm0s.onrender.com)  
+> 🐙 **GitHub Repository:** [https://github.com/karannayak1910/ai-career-guidance-system](https://github.com/karannayak1910/ai-career-guidance-system)
+
+### Key Features
+- **Student Profile Analysis:** Collect skills, interests, academic details, and resumes.
+- **AI Career Recommendations:** Suggest the Top 3 suitable technology careers with match percentages.
+- **Skill Gap Analysis:** Identify existing, partially matched, and missing skills.
+- **Personalized Learning Roadmap:** Generate monthly learning plans with free resources and practical projects.
+
+### AI Technologies
+- Rule-Based AI
+- Decision Tree Classification
+- Deductive Reasoning
+- Machine Learning
+
+### Technology Stack
+- Python
+- Flask
+- HTML, CSS, JavaScript
+- Scikit-learn
+- Pandas and NumPy
+- SQLite
+- Chart.js
+
+### Project Goal
+To provide students with intelligent, personalized, and actionable career guidance that helps them understand their current skills and prepare for future technology careers.
 
 ---
 
