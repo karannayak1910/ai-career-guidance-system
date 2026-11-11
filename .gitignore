@@ -12,7 +12,9 @@ __pycache__/
 .pytest_cache/
 
 # Large Binaries
+bin/*.exe
 bin/cloudflared.exe
+bin/gh.exe
 
 # Runtime Uploads (keep directory structure)
 uploads/*
