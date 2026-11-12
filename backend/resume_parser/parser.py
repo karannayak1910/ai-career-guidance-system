@@ -235,7 +235,7 @@ class ResumeParser:
         search_corpus = edu_match.group(1) if edu_match else text
 
         patterns = [
-            r"([A-Z][a-zA-Z\s\&\.\']+(?:Institute|University|College|Academy|Engineering College|Polytechnic)[a-zA-Z\s\&\,\.\']*)",
+            r"([A-Z][a-zA-Z \t\&\.\']+(?:Institute|University|College|Academy|Engineering College|Polytechnic)[a-zA-Z \t\&\,\.\']*)",
             r"\b(IIT\s+[A-Za-z]+|NIT\s+[A-Za-z]+|IIIT\s+[A-Za-z]+|BITS\s+[A-Za-z]+|DTU|NSUT|VIT|MIT|BITS Pilani|Stanford|Harvard)\b"
         ]
         for p in patterns:
