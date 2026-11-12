@@ -2,7 +2,11 @@
   "skills": {
     "Python": {
       "category": "Programming Languages",
-      "aliases": ["python", "py", "python3"],
+      "aliases": [
+        "python",
+        "py",
+        "python3"
+      ],
       "why_it_matters": "Python is the primary language for AI, Data Science, backend APIs, and automation with the largest library ecosystem in tech.",
       "documentation": "https://docs.python.org/3/",
       "youtube": "https://www.youtube.com/watch?v=_uQrJ0TkZlc",
@@ -10,7 +14,12 @@
     },
     "JavaScript": {
       "category": "Programming Languages",
-      "aliases": ["javascript", "js", "es6", "vanilla js"],
+      "aliases": [
+        "javascript",
+        "js",
+        "es6",
+        "vanilla js"
+      ],
       "why_it_matters": "Powers 98% of interactive client web applications and high-concurrency server applications via Node.js.",
       "documentation": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
       "youtube": "https://www.youtube.com/watch?v=W6NZfCO5SIk",
@@ -18,7 +27,10 @@
     },
     "TypeScript": {
       "category": "Programming Languages",
-      "aliases": ["typescript", "ts"],
+      "aliases": [
+        "typescript",
+        "ts"
+      ],
       "why_it_matters": "Adds static typing to JavaScript, catching compilation errors early and powering scalable enterprise codebases.",
       "documentation": "https://www.typescriptlang.org/docs/",
       "youtube": "https://www.youtube.com/watch?v=BwuLxPH8IDs",
@@ -26,7 +38,11 @@
     },
     "Java": {
       "category": "Programming Languages",
-      "aliases": ["java", "core java", "j2se"],
+      "aliases": [
+        "java",
+        "core java",
+        "j2se"
+      ],
       "why_it_matters": "Dominates high-concurrency enterprise backends, banking platforms, and large-scale distributed systems.",
       "documentation": "https://docs.oracle.com/en/java/",
       "youtube": "https://www.youtube.com/watch?v=eIrMbAQSU34",
@@ -34,7 +50,11 @@
     },
     "C++": {
       "category": "Programming Languages",
-      "aliases": ["cpp", "c++", "c plus plus"],
+      "aliases": [
+        "cpp",
+        "c++",
+        "c plus plus"
+      ],
       "why_it_matters": "Crucial for systems programming, operating systems, game engines, and competitive algorithmic problem solving.",
       "documentation": "https://en.cppreference.com/w/",
       "youtube": "https://www.youtube.com/watch?v=vLnPwxZdW4Y",
@@ -42,7 +62,10 @@
     },
     "HTML": {
       "category": "Web Development",
-      "aliases": ["html", "html5"],
+      "aliases": [
+        "html",
+        "html5"
+      ],
       "why_it_matters": "The structural semantic backbone of modern web pages and browser accessibility.",
       "documentation": "https://developer.mozilla.org/en-US/docs/Web/HTML",
       "youtube": "https://www.youtube.com/watch?v=kUMe1FH4CHE",
@@ -50,7 +73,10 @@
     },
     "CSS": {
       "category": "Web Development",
-      "aliases": ["css", "css3"],
+      "aliases": [
+        "css",
+        "css3"
+      ],
       "why_it_matters": "Controls visual layouts, responsive viewports, typography, and interactive modern animations.",
       "documentation": "https://developer.mozilla.org/en-US/docs/Web/CSS",
       "youtube": "https://www.youtube.com/watch?v=1PnVor36_40",
@@ -58,7 +84,11 @@
     },
     "Tailwind CSS": {
       "category": "Frameworks",
-      "aliases": ["tailwind", "tailwind css", "tailwindcss"],
+      "aliases": [
+        "tailwind",
+        "tailwind css",
+        "tailwindcss"
+      ],
       "why_it_matters": "Utility-first CSS framework enabling rapid, highly customized modern responsive UI designs.",
       "documentation": "https://tailwindcss.com/docs",
       "youtube": "https://www.youtube.com/watch?v=dFgzHOX84xQ",
@@ -66,7 +96,11 @@
     },
     "React": {
       "category": "Frameworks",
-      "aliases": ["react", "react.js", "reactjs"],
+      "aliases": [
+        "react",
+        "react.js",
+        "reactjs"
+      ],
       "why_it_matters": "The dominant frontend UI library for building modular, high-speed single-page applications.",
       "documentation": "https://react.dev/",
       "youtube": "https://www.youtube.com/watch?v=bMknfKXIFA8",
@@ -74,7 +108,11 @@
     },
     "Next.js": {
       "category": "Frameworks",
-      "aliases": ["nextjs", "next.js", "next"],
+      "aliases": [
+        "nextjs",
+        "next.js",
+        "next"
+      ],
       "why_it_matters": "Full-stack React framework providing Server-Side Rendering (SSR) and automated SEO optimization.",
       "documentation": "https://nextjs.org/docs",
       "youtube": "https://www.youtube.com/watch?v=843nec-IvW0",
@@ -82,7 +120,11 @@
     },
     "Node.js": {
       "category": "Frameworks",
-      "aliases": ["nodejs", "node", "node.js"],
+      "aliases": [
+        "nodejs",
+        "node",
+        "node.js"
+      ],
       "why_it_matters": "Enables asynchronous non-blocking event-driven backend microservices in JavaScript.",
       "documentation": "https://nodejs.org/en/docs",
       "youtube": "https://www.youtube.com/watch?v=f2EqECiTBL8",
@@ -90,7 +132,9 @@
     },
     "Django": {
       "category": "Frameworks",
-      "aliases": ["django"],
+      "aliases": [
+        "django"
+      ],
       "why_it_matters": "High-level Python web framework with built-in ORM, admin panel, authentication, and security protections.",
       "documentation": "https://docs.djangoproject.com/",
       "youtube": "https://www.youtube.com/watch?v=F5mRW0jo-U4",
@@ -98,7 +142,9 @@
     },
     "Flask": {
       "category": "Frameworks",
-      "aliases": ["flask"],
+      "aliases": [
+        "flask"
+      ],
       "why_it_matters": "Lightweight, unopinionated Python web microframework ideal for ML model serving and REST APIs.",
       "documentation": "https://flask.palletsprojects.com/",
       "youtube": "https://www.youtube.com/watch?v=Z1RJmh_OqeA",
@@ -106,7 +152,10 @@
     },
     "FastAPI": {
       "category": "Frameworks",
-      "aliases": ["fastapi", "fast api"],
+      "aliases": [
+        "fastapi",
+        "fast api"
+      ],
       "why_it_matters": "Modern, high-performance Python framework with automatic Swagger docs and native asynchronous support.",
       "documentation": "https://fastapi.tiangolo.com/",
       "youtube": "https://www.youtube.com/watch?v=tLKKmouU58Q",
@@ -114,7 +163,11 @@
     },
     "Spring Boot": {
       "category": "Frameworks",
-      "aliases": ["spring boot", "springboot", "spring"],
+      "aliases": [
+        "spring boot",
+        "springboot",
+        "spring"
+      ],
       "why_it_matters": "The enterprise standard for building production-grade Java microservices and RESTful applications.",
       "documentation": "https://spring.io/projects/spring-boot",
       "youtube": "https://www.youtube.com/watch?v=9SGDpanrc8U",
@@ -122,7 +175,10 @@
     },
     "SQL": {
       "category": "Databases",
-      "aliases": ["sql", "structured query language"],
+      "aliases": [
+        "sql",
+        "structured query language"
+      ],
       "why_it_matters": "Universal declarative query language essential for extracting and manipulating relational database assets.",
       "documentation": "https://www.w3schools.com/sql/",
       "youtube": "https://www.youtube.com/watch?v=HXV3zeRR3h4",
@@ -130,7 +186,11 @@
     },
     "PostgreSQL": {
       "category": "Databases",
-      "aliases": ["postgres", "postgresql", "psql"],
+      "aliases": [
+        "postgres",
+        "postgresql",
+        "psql"
+      ],
       "why_it_matters": "Advanced open-source relational database offering JSONB support, ACID reliability, and geospatial queries.",
       "documentation": "https://www.postgresql.org/docs/",
       "youtube": "https://www.youtube.com/watch?v=qw--VYLpxG4",
@@ -138,7 +198,9 @@
     },
     "MySQL": {
       "category": "Databases",
-      "aliases": ["mysql"],
+      "aliases": [
+        "mysql"
+      ],
       "why_it_matters": "World's most popular open-source relational database powering web applications at massive scale.",
       "documentation": "https://dev.mysql.com/doc/",
       "youtube": "https://www.youtube.com/watch?v=7S_tz1z_5bA",
@@ -146,7 +208,11 @@
     },
     "MongoDB": {
       "category": "Databases",
-      "aliases": ["mongodb", "mongo", "nosql"],
+      "aliases": [
+        "mongodb",
+        "mongo",
+        "nosql"
+      ],
       "why_it_matters": "Document-oriented NoSQL database that accommodates flexible, evolving schemas and horizontal scaling.",
       "documentation": "https://www.mongodb.com/docs/",
       "youtube": "https://www.youtube.com/watch?v=ofme2o29ngU",
@@ -154,7 +220,10 @@
     },
     "Redis": {
       "category": "Databases",
-      "aliases": ["redis", "in-memory"],
+      "aliases": [
+        "redis",
+        "in-memory"
+      ],
       "why_it_matters": "Ultra-fast in-memory key-value data store used for sub-millisecond caching, session stores, and rate limiting.",
       "documentation": "https://redis.io/docs/",
       "youtube": "https://www.youtube.com/watch?v=jgpVdJB2sKQ",
@@ -162,7 +231,11 @@
     },
     "Git": {
       "category": "Tools",
-      "aliases": ["git", "github", "gitlab"],
+      "aliases": [
+        "git",
+        "github",
+        "gitlab"
+      ],
       "why_it_matters": "Industry-standard version control system enabling team branching, peer reviews, and code auditing.",
       "documentation": "https://git-scm.com/doc",
       "youtube": "https://www.youtube.com/watch?v=RGOj5yH7evk",
@@ -170,7 +243,11 @@
     },
     "Docker": {
       "category": "Tools",
-      "aliases": ["docker", "containers", "containerization"],
+      "aliases": [
+        "docker",
+        "containers",
+        "containerization"
+      ],
       "why_it_matters": "Standardizes software environments into lightweight containers, eliminating machine-specific deployment discrepancies.",
       "documentation": "https://docs.docker.com/",
       "youtube": "https://www.youtube.com/watch?v=pg19Z8LL06w",
@@ -178,7 +255,10 @@
     },
     "Kubernetes": {
       "category": "Tools",
-      "aliases": ["kubernetes", "k8s"],
+      "aliases": [
+        "kubernetes",
+        "k8s"
+      ],
       "why_it_matters": "Automates deployment, horizontal scaling, and self-healing management of containerized application clusters.",
       "documentation": "https://kubernetes.io/docs/home/",
       "youtube": "https://www.youtube.com/watch?v=X48VuDVv0do",
@@ -186,7 +266,12 @@
     },
     "Linux": {
       "category": "Tools",
-      "aliases": ["linux", "ubuntu", "bash", "shell"],
+      "aliases": [
+        "linux",
+        "ubuntu",
+        "bash",
+        "shell"
+      ],
       "why_it_matters": "Over 90% of cloud servers run on Linux. Mastering command line and permissions is foundational.",
       "documentation": "https://linuxjourney.com/",
       "youtube": "https://www.youtube.com/watch?v=sWbGOq4ftl8",
@@ -194,7 +279,12 @@
     },
     "AWS": {
       "category": "Cloud Computing",
-      "aliases": ["aws", "amazon web services", "cloud computing", "cloud"],
+      "aliases": [
+        "aws",
+        "amazon web services",
+        "cloud computing",
+        "cloud"
+      ],
       "why_it_matters": "Leading cloud provider offering global compute, managed storage, serverless, and database infrastructure.",
       "documentation": "https://docs.aws.amazon.com/",
       "youtube": "https://www.youtube.com/watch?v=k1RI5locZE4",
@@ -202,7 +292,11 @@
     },
     "CI/CD": {
       "category": "Tools",
-      "aliases": ["ci/cd", "continuous integration", "github actions"],
+      "aliases": [
+        "ci/cd",
+        "continuous integration",
+        "github actions"
+      ],
       "why_it_matters": "Automates linting, test suites, building, and zero-downtime deployment on every code commit.",
       "documentation": "https://docs.github.com/en/actions",
       "youtube": "https://www.youtube.com/watch?v=R8_veQiYBjI",
@@ -210,7 +304,11 @@
     },
     "Machine Learning": {
       "category": "Technical Skills",
-      "aliases": ["machine learning", "ml", "scikit-learn"],
+      "aliases": [
+        "machine learning",
+        "ml",
+        "scikit-learn"
+      ],
       "why_it_matters": "Allows software systems to learn predictive patterns from historical data without explicit rule coding.",
       "documentation": "https://scikit-learn.org/stable/",
       "youtube": "https://www.youtube.com/watch?v=GwIo3gDZCVQ",
@@ -218,7 +316,13 @@
     },
     "Deep Learning": {
       "category": "Technical Skills",
-      "aliases": ["deep learning", "neural networks", "cnn", "rnn", "transformers"],
+      "aliases": [
+        "deep learning",
+        "neural networks",
+        "cnn",
+        "rnn",
+        "transformers"
+      ],
       "why_it_matters": "Powers breakthrough advancements in Computer Vision, Natural Language Processing, and Generative AI.",
       "documentation": "https://www.deeplearningbook.org/",
       "youtube": "https://www.youtube.com/watch?v=aircAruvnKk",
@@ -226,7 +330,11 @@
     },
     "TensorFlow": {
       "category": "Frameworks",
-      "aliases": ["tensorflow", "tf", "keras"],
+      "aliases": [
+        "tensorflow",
+        "tf",
+        "keras"
+      ],
       "why_it_matters": "Google's production-grade deep learning ecosystem for training and serving machine learning models.",
       "documentation": "https://www.tensorflow.org/",
       "youtube": "https://www.youtube.com/watch?v=tPYj3fFJGjk",
@@ -234,7 +342,10 @@
     },
     "PyTorch": {
       "category": "Frameworks",
-      "aliases": ["pytorch", "torch"],
+      "aliases": [
+        "pytorch",
+        "torch"
+      ],
       "why_it_matters": "Primary deep learning framework in AI research labs due to dynamic computation graphs and clean Pythonic syntax.",
       "documentation": "https://pytorch.org/",
       "youtube": "https://www.youtube.com/watch?v=V_xro1bcAuA",
@@ -242,7 +353,9 @@
     },
     "Pandas": {
       "category": "Technical Skills",
-      "aliases": ["pandas"],
+      "aliases": [
+        "pandas"
+      ],
       "why_it_matters": "Standard data manipulation and analysis library for structured tabular data in Python.",
       "documentation": "https://pandas.pydata.org/docs/",
       "youtube": "https://www.youtube.com/watch?v=vmEHCJofslg",
@@ -250,7 +363,9 @@
     },
     "NumPy": {
       "category": "Technical Skills",
-      "aliases": ["numpy"],
+      "aliases": [
+        "numpy"
+      ],
       "why_it_matters": "Provides high-performance vectorized multidimensional array and matrix computations in Python.",
       "documentation": "https://numpy.org/doc/stable/",
       "youtube": "https://www.youtube.com/watch?v=QUT1VHiLmmI",
@@ -258,7 +373,11 @@
     },
     "Power BI": {
       "category": "Tools",
-      "aliases": ["power bi", "powerbi", "dax"],
+      "aliases": [
+        "power bi",
+        "powerbi",
+        "dax"
+      ],
       "why_it_matters": "Microsoft's premier business analytics tool for creating interactive KPI dashboards and reports.",
       "documentation": "https://learn.microsoft.com/en-us/power-bi/",
       "youtube": "https://www.youtube.com/watch?v=3u7MQz1EyPY",
@@ -266,7 +385,9 @@
     },
     "Tableau": {
       "category": "Tools",
-      "aliases": ["tableau"],
+      "aliases": [
+        "tableau"
+      ],
       "why_it_matters": "Leading visual analytics platform used by organizations to transform raw data into visual stories.",
       "documentation": "https://help.tableau.com/",
       "youtube": "https://www.youtube.com/watch?v=aHaOIvR00So",
@@ -274,7 +395,11 @@
     },
     "Excel": {
       "category": "Tools",
-      "aliases": ["excel", "ms excel", "spreadsheets"],
+      "aliases": [
+        "excel",
+        "ms excel",
+        "spreadsheets"
+      ],
       "why_it_matters": "Ubiquitous business analytics tool for quick ad-hoc analysis, pivot tables, and financial modeling.",
       "documentation": "https://support.microsoft.com/en-us/excel",
       "youtube": "https://www.youtube.com/watch?v=Vl0H-qTclOg",
@@ -282,7 +407,12 @@
     },
     "Statistics": {
       "category": "Technical Skills",
-      "aliases": ["statistics", "probability", "statistical analysis", "hypothesis testing"],
+      "aliases": [
+        "statistics",
+        "probability",
+        "statistical analysis",
+        "hypothesis testing"
+      ],
       "why_it_matters": "The mathematical foundation ensuring data conclusions and predictive models are statistically sound.",
       "documentation": "https://openintro-ims.netlify.app/",
       "youtube": "https://www.youtube.com/watch?v=xxpc-HPKN28",
@@ -290,7 +420,11 @@
     },
     "Mathematics": {
       "category": "Technical Skills",
-      "aliases": ["mathematics", "linear algebra", "calculus"],
+      "aliases": [
+        "mathematics",
+        "linear algebra",
+        "calculus"
+      ],
       "why_it_matters": "Linear algebra, multivariate calculus, and optimization power gradient descent and neural network updates.",
       "documentation": "https://mml-book.github.io/",
       "youtube": "https://www.youtube.com/watch?v=fNk_zzaMoSs",
@@ -298,7 +432,14 @@
     },
     "Data Structures": {
       "category": "Technical Skills",
-      "aliases": ["data structures", "dsa", "arrays", "trees", "graphs", "linked lists"],
+      "aliases": [
+        "data structures",
+        "dsa",
+        "arrays",
+        "trees",
+        "graphs",
+        "linked lists"
+      ],
       "why_it_matters": "Core foundational knowledge required to organize memory efficiently and clear technical hiring bars.",
       "documentation": "https://www.geeksforgeeks.org/data-structures/",
       "youtube": "https://www.youtube.com/watch?v=RBSGKlAnoiM",
@@ -306,7 +447,12 @@
     },
     "Algorithms": {
       "category": "Technical Skills",
-      "aliases": ["algorithms", "sorting", "dynamic programming", "graph algorithms"],
+      "aliases": [
+        "algorithms",
+        "sorting",
+        "dynamic programming",
+        "graph algorithms"
+      ],
       "why_it_matters": "Teaches computational complexity analysis (Big-O) and optimal algorithmic problem solving.",
       "documentation": "https://algs4.cs.princeton.edu/home/",
       "youtube": "https://www.youtube.com/watch?v=0IAPZzGSbME",
@@ -314,7 +460,13 @@
     },
     "Networking": {
       "category": "Technical Skills",
-      "aliases": ["networking", "computer networks", "tcp/ip", "dns", "http"],
+      "aliases": [
+        "networking",
+        "computer networks",
+        "tcp/ip",
+        "dns",
+        "http"
+      ],
       "why_it_matters": "Fundamental to understanding how packets, routers, firewalls, and cloud VPC subnets communicate securely.",
       "documentation": "https://www.cloudflare.com/learning/network-layer/what-is-a-protocol/",
       "youtube": "https://www.youtube.com/watch?v=IPvYjXCsTg8",
@@ -322,7 +474,13 @@
     },
     "Cybersecurity": {
       "category": "Technical Skills",
-      "aliases": ["cybersecurity", "infosec", "security", "penetration testing", "ethical hacking"],
+      "aliases": [
+        "cybersecurity",
+        "infosec",
+        "security",
+        "penetration testing",
+        "ethical hacking"
+      ],
       "why_it_matters": "Defends organizational data assets, authentication perimeters, and infrastructure against exploits.",
       "documentation": "https://owasp.org/www-project-top-ten/",
       "youtube": "https://www.youtube.com/watch?v=inWWhr5tnEA",
@@ -330,7 +488,13 @@
     },
     "REST APIs": {
       "category": "Technical Skills",
-      "aliases": ["rest apis", "rest api", "rest", "web apis", "api"],
+      "aliases": [
+        "rest apis",
+        "rest api",
+        "rest",
+        "web apis",
+        "api"
+      ],
       "why_it_matters": "The architectural standard for decoupled communication between client frontends and backend services.",
       "documentation": "https://restfulapi.net/",
       "youtube": "https://www.youtube.com/watch?v=-MTSQjw5DrM",
@@ -338,7 +502,13 @@
     },
     "UI/UX Design": {
       "category": "Technical Skills",
-      "aliases": ["ui/ux design", "ui/ux", "ui design", "ux design", "wireframing"],
+      "aliases": [
+        "ui/ux design",
+        "ui/ux",
+        "ui design",
+        "ux design",
+        "wireframing"
+      ],
       "why_it_matters": "Ensures digital products are intuitive, accessible, visually appealing, and solve real user pain points.",
       "documentation": "https://www.nngroup.com/articles/",
       "youtube": "https://www.youtube.com/watch?v=c9Wg6Cb_YlU",
@@ -346,7 +516,9 @@
     },
     "Figma": {
       "category": "Tools",
-      "aliases": ["figma"],
+      "aliases": [
+        "figma"
+      ],
       "why_it_matters": "The industry's leading collaborative design and prototyping tool for web and mobile interfaces.",
       "documentation": "https://help.figma.com/hc/en-us",
       "youtube": "https://www.youtube.com/watch?v=FTFaQWZBqQ8",
@@ -354,7 +526,11 @@
     },
     "Responsive Design": {
       "category": "Web Development",
-      "aliases": ["responsive design", "mobile responsive", "media queries"],
+      "aliases": [
+        "responsive design",
+        "mobile responsive",
+        "media queries"
+      ],
       "why_it_matters": "Ensures web layouts render seamlessly across mobile phones, tablets, laptops, and ultra-wide desktop monitors.",
       "documentation": "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design",
       "youtube": "https://www.youtube.com/watch?v=x4u1yp3Msao",
@@ -362,7 +538,11 @@
     },
     "Data Visualization": {
       "category": "Technical Skills",
-      "aliases": ["data visualization", "charts", "charting"],
+      "aliases": [
+        "data visualization",
+        "charts",
+        "charting"
+      ],
       "why_it_matters": "Transforms dry numbers into visual graphs that stakeholders and decision-makers can quickly interpret.",
       "documentation": "https://www.tableau.com/learn/articles/data-visualization",
       "youtube": "https://www.youtube.com/watch?v=UO98lSm3aIc",
@@ -370,11 +550,397 @@
     },
     "OOP": {
       "category": "Technical Skills",
-      "aliases": ["oop", "object oriented programming", "classes"],
+      "aliases": [
+        "oop",
+        "object oriented programming",
+        "classes"
+      ],
       "why_it_matters": "Foundational programming paradigm utilizing encapsulation, inheritance, polymorphism, and abstraction.",
       "documentation": "https://en.wikipedia.org/wiki/Object-oriented_programming",
       "youtube": "https://www.youtube.com/watch?v=pTB0EiLXUC8",
       "project_idea": "Object-oriented simulation engine with inheritance hierarchies and modular design."
+    },
+    "Scikit-learn": {
+      "category": "Frameworks",
+      "aliases": [
+        "scikit-learn",
+        "sklearn",
+        "scikit learn"
+      ],
+      "why_it_matters": "Industry standard library for traditional machine learning algorithms, classification, regression, and data preprocessing in Python.",
+      "documentation": "https://scikit-learn.org/stable/",
+      "youtube": "https://www.youtube.com/watch?v=0B5eIE_1vpU",
+      "project_idea": "Build a customer churn prediction classifier with ROC-AUC evaluation and hyperparameter tuning."
+    },
+    "Express": {
+      "category": "Frameworks",
+      "aliases": [
+        "express",
+        "express.js",
+        "expressjs"
+      ],
+      "why_it_matters": "Fast, unopinionated, minimalist web framework for Node.js powering modern microservices and APIs.",
+      "documentation": "https://expressjs.com/",
+      "youtube": "https://www.youtube.com/watch?v=SccSCuHhOw0",
+      "project_idea": "RESTful API for an issue tracking system with JWT authentication and rate limiting."
+    },
+    "Azure": {
+      "category": "Cloud Computing",
+      "aliases": [
+        "azure",
+        "microsoft azure",
+        "azure cloud"
+      ],
+      "why_it_matters": "Leading enterprise cloud computing platform powering hybrid infrastructure, identity management, and cloud apps.",
+      "documentation": "https://learn.microsoft.com/en-us/azure/",
+      "youtube": "https://www.youtube.com/watch?v=NKEFWyqJ5XA",
+      "project_idea": "Deploy a containerized microservice to Azure App Service with Azure SQL database integration."
+    },
+    "GCP": {
+      "category": "Cloud Computing",
+      "aliases": [
+        "gcp",
+        "google cloud",
+        "google cloud platform"
+      ],
+      "why_it_matters": "Google Cloud Platform powers big data, AI workloads, Kubernetes Engine (GKE), and scalable cloud infrastructure.",
+      "documentation": "https://cloud.google.com/docs",
+      "youtube": "https://www.youtube.com/watch?v=EN4fEwb845I",
+      "project_idea": "Set up a serverless pipeline using Cloud Functions, Pub/Sub, and BigQuery."
+    },
+    "Cloud Computing": {
+      "category": "Cloud Computing",
+      "aliases": [
+        "cloud computing",
+        "cloud infrastructure",
+        "cloud"
+      ],
+      "why_it_matters": "Foundational architecture enabling scalable on-demand compute, storage, networking, and serverless architectures.",
+      "documentation": "https://aws.amazon.com/what-is-cloud-computing/",
+      "youtube": "https://www.youtube.com/watch?v=M988_fsOSWo",
+      "project_idea": "Architect high-availability multi-zone cloud infrastructure with automated auto-scaling."
+    },
+    "Microservices": {
+      "category": "Technical Skills",
+      "aliases": [
+        "microservices",
+        "microservice architecture",
+        "microservice"
+      ],
+      "why_it_matters": "Architectural style decomposing monolithic systems into independently deployable, loosely coupled business services.",
+      "documentation": "https://microservices.io/",
+      "youtube": "https://www.youtube.com/watch?v=rv4LlmLmVWk",
+      "project_idea": "Design an e-commerce microservices cluster communicating via event-driven message queues."
+    },
+    "System Design": {
+      "category": "Technical Skills",
+      "aliases": [
+        "system design",
+        "distributed systems",
+        "high level design",
+        "hld"
+      ],
+      "why_it_matters": "Core engineering discipline for building scalable, reliable, and fault-tolerant distributed platforms.",
+      "documentation": "https://github.com/donnemartin/system-design-primer",
+      "youtube": "https://www.youtube.com/watch?v=m8Icp_Cid5o",
+      "project_idea": "Design a URL shortener like Bitly handling 100k requests per second with caching and sharding."
+    },
+    "NLP": {
+      "category": "Machine Learning",
+      "aliases": [
+        "nlp",
+        "natural language processing",
+        "spacy",
+        "nltk",
+        "text processing"
+      ],
+      "why_it_matters": "Enables AI systems to understand, interpret, summarize, and generate human language.",
+      "documentation": "https://spacy.io/usage",
+      "youtube": "https://www.youtube.com/watch?v=fOvTtapxa9c",
+      "project_idea": "Sentiment analysis and entity recognition pipeline on financial market news."
+    },
+    "Computer Vision": {
+      "category": "Machine Learning",
+      "aliases": [
+        "computer vision",
+        "cv",
+        "opencv",
+        "image processing"
+      ],
+      "why_it_matters": "Powers image segmentation, object detection, facial recognition, and autonomous navigation.",
+      "documentation": "https://docs.opencv.org/4.x/",
+      "youtube": "https://www.youtube.com/watch?v=oXlwWbU8l2o",
+      "project_idea": "Real-time object detection and tracking application using YOLO and OpenCV."
+    },
+    "Big Data": {
+      "category": "Data Science",
+      "aliases": [
+        "big data",
+        "apache spark",
+        "spark",
+        "pyspark",
+        "hadoop"
+      ],
+      "why_it_matters": "Processes petabyte-scale streaming and batch data across distributed cluster nodes.",
+      "documentation": "https://spark.apache.org/docs/latest/",
+      "youtube": "https://www.youtube.com/watch?v=_C8kWso4ne4",
+      "project_idea": "Distributed log aggregation and real-time anomaly detection using PySpark."
+    },
+    "ETL": {
+      "category": "Data Science",
+      "aliases": [
+        "etl",
+        "extract transform load",
+        "data pipeline",
+        "data ingestion"
+      ],
+      "why_it_matters": "Extracts data from operational databases, cleans and transforms it, and loads into analytics warehouses.",
+      "documentation": "https://airflow.apache.org/docs/",
+      "youtube": "https://www.youtube.com/watch?v=Kz6E1o4T4zQ",
+      "project_idea": "Automated daily ETL pipeline extracting transactional data into a partitioned data warehouse."
+    },
+    "Feature Engineering": {
+      "category": "Data Science",
+      "aliases": [
+        "feature engineering",
+        "feature selection",
+        "feature scaling"
+      ],
+      "why_it_matters": "Transforms raw attributes into predictive machine learning signals, significantly boosting model accuracy.",
+      "documentation": "https://scikit-learn.org/stable/modules/preprocessing.html",
+      "youtube": "https://www.youtube.com/watch?v=fHkH1jH-n48",
+      "project_idea": "Engineer interaction terms, polynomial features, and target encodings for tabular data."
+    },
+    "A/B Testing": {
+      "category": "Data Science",
+      "aliases": [
+        "a/b testing",
+        "ab testing",
+        "hypothesis testing",
+        "split testing"
+      ],
+      "why_it_matters": "Scientific framework used by top tech companies to test features, algorithms, and maximize conversion rates.",
+      "documentation": "https://www.optimizely.com/optimization-glossary/ab-testing/",
+      "youtube": "https://www.youtube.com/watch?v=zFzgHXJzY-w",
+      "project_idea": "Design and calculate statistical sample size and two-tailed z-tests for landing page conversion."
+    },
+    "Terraform": {
+      "category": "Tools",
+      "aliases": [
+        "terraform",
+        "iac",
+        "infrastructure as code",
+        "hashicorp terraform"
+      ],
+      "why_it_matters": "Automates cloud infrastructure provisioning and configuration management deterministically.",
+      "documentation": "https://developer.hashicorp.com/terraform/docs",
+      "youtube": "https://www.youtube.com/watch?v=7xngnjfIlK4",
+      "project_idea": "Provision a VPC, public/private subnets, and an auto-scaling ECS cluster using Terraform."
+    },
+    "Ethical Hacking": {
+      "category": "Cybersecurity",
+      "aliases": [
+        "ethical hacking",
+        "pen testing",
+        "penetration testing",
+        "vulnerability assessment",
+        "bug bounty"
+      ],
+      "why_it_matters": "Identifies security vulnerabilities and exploits in systems before malicious attackers can compromise them.",
+      "documentation": "https://owasp.org/www-project-top-ten/",
+      "youtube": "https://www.youtube.com/watch?v=3Kq1MIfTWCE",
+      "project_idea": "Comprehensive penetration test report of a web application following OWASP Top 10."
+    },
+    "Wireshark": {
+      "category": "Cybersecurity",
+      "aliases": [
+        "wireshark",
+        "packet analysis",
+        "network sniffing",
+        "tcpdump"
+      ],
+      "why_it_matters": "The world\u2019s foremost network protocol analyzer used for network troubleshooting and security forensics.",
+      "documentation": "https://www.wireshark.org/docs/",
+      "youtube": "https://www.youtube.com/watch?v=lb1Dw0elw0Q",
+      "project_idea": "Analyze captured PCAP network traces to reconstruct HTTP sessions and detect port scans."
+    },
+    "Cryptography": {
+      "category": "Cybersecurity",
+      "aliases": [
+        "cryptography",
+        "encryption",
+        "hashing",
+        "ssl",
+        "tls",
+        "aes",
+        "rsa"
+      ],
+      "why_it_matters": "Protects data confidentiality, integrity, and authenticity across networks and storage.",
+      "documentation": "https://cryptography.io/en/latest/",
+      "youtube": "https://www.youtube.com/watch?v=jhXCTbFnK8o",
+      "project_idea": "End-to-end encrypted messaging service with RSA key exchange and AES-GCM payloads."
+    },
+    "Security Auditing": {
+      "category": "Cybersecurity",
+      "aliases": [
+        "security auditing",
+        "soc2",
+        "iso 27001",
+        "security compliance"
+      ],
+      "why_it_matters": "Evaluates corporate systems and code against international security frameworks and data privacy standards.",
+      "documentation": "https://www.cisa.gov/resources-tools",
+      "youtube": "https://www.youtube.com/watch?v=3Kq1MIfTWCE",
+      "project_idea": "Perform an automated security audit of an AWS account using Prowler and AWS Config."
+    },
+    "Cloud Security": {
+      "category": "Cybersecurity",
+      "aliases": [
+        "cloud security",
+        "iam policies",
+        "cloud sec"
+      ],
+      "why_it_matters": "Defends cloud workloads, IAM permissions, network perimeters, and sensitive secrets against breach.",
+      "documentation": "https://cloudsecurityalliance.org/",
+      "youtube": "https://www.youtube.com/watch?v=0h7G9p08Wyg",
+      "project_idea": "Implement least-privilege IAM roles and automated S3 bucket policy compliance checkers."
+    },
+    "MLOps": {
+      "category": "Machine Learning",
+      "aliases": [
+        "mlops",
+        "ml ops",
+        "machine learning operations",
+        "mlflow",
+        "dvc"
+      ],
+      "why_it_matters": "Standardizes model training, versioning, automated testing, deployment, and drift monitoring in production.",
+      "documentation": "https://ml-ops.org/",
+      "youtube": "https://www.youtube.com/watch?v=9Iq3zS_Tsm0",
+      "project_idea": "Automated ML training pipeline with model registry, Docker deployment, and data drift alerts."
+    },
+    "Transformers": {
+      "category": "Machine Learning",
+      "aliases": [
+        "transformers",
+        "bert",
+        "gpt",
+        "llm",
+        "large language models",
+        "attention mechanism"
+      ],
+      "why_it_matters": "State-of-the-art deep learning architecture powering modern Generative AI, LLMs, and multimodal models.",
+      "documentation": "https://huggingface.co/docs/transformers/index",
+      "youtube": "https://www.youtube.com/watch?v=dchPR31hsB4",
+      "project_idea": "Fine-tune a lightweight BERT/LLM model for customer support ticket classification."
+    },
+    "HuggingFace": {
+      "category": "Machine Learning",
+      "aliases": [
+        "huggingface",
+        "hugging face",
+        "hf"
+      ],
+      "why_it_matters": "The leading hub for open-source AI models, datasets, and NLP/computer vision model deployment.",
+      "documentation": "https://huggingface.co/docs",
+      "youtube": "https://www.youtube.com/watch?v=QEaBAZQCtwE",
+      "project_idea": "Deploy a HuggingFace space with Gradio frontend performing text summarization and Q&A."
+    },
+    "Unit Testing": {
+      "category": "Technical Skills",
+      "aliases": [
+        "unit testing",
+        "test driven development",
+        "tdd",
+        "pytest",
+        "jest",
+        "junit"
+      ],
+      "why_it_matters": "Guarantees software code reliability, prevents regression bugs, and enforces clean modular code architecture.",
+      "documentation": "https://docs.pytest.org/",
+      "youtube": "https://www.youtube.com/watch?v=byaxg00Gf9I",
+      "project_idea": "Build a comprehensive pytest and CI test suite with 90%+ code coverage on backend API routes."
+    },
+    "Design Patterns": {
+      "category": "Technical Skills",
+      "aliases": [
+        "design patterns",
+        "gof patterns",
+        "solid principles",
+        "software architecture patterns"
+      ],
+      "why_it_matters": "Reusable, time-tested architectural solutions to common software engineering problems.",
+      "documentation": "https://refactoring.guru/design-patterns",
+      "youtube": "https://www.youtube.com/watch?v=v9ejT8FO-7I",
+      "project_idea": "Implement Factory, Singleton, Strategy, and Observer patterns in an event notification system."
+    },
+    "Redux": {
+      "category": "Frameworks",
+      "aliases": [
+        "redux",
+        "redux toolkit",
+        "rtk",
+        "state management"
+      ],
+      "why_it_matters": "Predictable state container for JavaScript apps ensuring centralized and traceable state updates.",
+      "documentation": "https://redux.js.org/",
+      "youtube": "https://www.youtube.com/watch?v=bbkBuqC1rU4",
+      "project_idea": "Multi-step e-commerce checkout flow with Redux Toolkit and persisted cart state."
+    },
+    "Hibernate": {
+      "category": "Frameworks",
+      "aliases": [
+        "hibernate",
+        "jpa",
+        "spring data jpa",
+        "orm"
+      ],
+      "why_it_matters": "High-performance Object-Relational Mapping (ORM) framework for enterprise Java applications.",
+      "documentation": "https://hibernate.org/orm/documentation/",
+      "youtube": "https://www.youtube.com/watch?v=Yv2xctJxE-w",
+      "project_idea": "Build a Spring Boot service with Hibernate entity mappings, lazy loading, and caching."
+    },
+    "Databases": {
+      "category": "Databases",
+      "aliases": [
+        "databases",
+        "dbms",
+        "rdbms",
+        "database management"
+      ],
+      "why_it_matters": "Underpins all data storage, ACID transactions, data warehousing, and query performance in tech.",
+      "documentation": "https://www.geeksforgeeks.org/dbms/",
+      "youtube": "https://www.youtube.com/watch?v=w-Ns9_i7H64",
+      "project_idea": "Design and normalize an enterprise relational database with 15+ tables and index optimizations."
+    },
+    "Monitoring": {
+      "category": "Tools",
+      "aliases": [
+        "monitoring",
+        "observability",
+        "prometheus",
+        "grafana",
+        "datadog",
+        "cloudwatch"
+      ],
+      "why_it_matters": "Provides continuous visibility into server health, latency, CPU utilization, and system error rates.",
+      "documentation": "https://prometheus.io/docs/",
+      "youtube": "https://www.youtube.com/watch?v=h4Sl21AKxDg",
+      "project_idea": "Set up Prometheus metrics collection and Grafana dashboards for an active web server."
+    },
+    "Bash": {
+      "category": "Tools",
+      "aliases": [
+        "bash",
+        "shell scripting",
+        "shell",
+        "sh",
+        "zsh"
+      ],
+      "why_it_matters": "Essential scripting environment for Linux system administration, CI/CD pipelines, and cloud automation.",
+      "documentation": "https://www.gnu.org/software/bash/manual/",
+      "youtube": "https://www.youtube.com/watch?v=tK9Oc6AEnR4",
+      "project_idea": "Write an automated backup and server health monitoring script with Slack webhook alerts."
     }
   }
 }

@@ -194,15 +194,73 @@ window.removeSkill = function(skill) {
   renderSelectedSkillsList();
 };
 
+// Global state for last extracted resume data
+window._lastExtractedData = null;
+window._currentResumeFile = null;
+
+// Tab Switching (File Upload vs. Paste Text)
+window.switchResumeTab = function(tab) {
+  const fileTab = document.getElementById('resume-tab-file');
+  const textTab = document.getElementById('resume-tab-text');
+  const btnFile = document.getElementById('tab-btn-file');
+  const btnText = document.getElementById('tab-btn-text');
+
+  if (tab === 'file') {
+    if (fileTab) fileTab.style.display = 'block';
+    if (textTab) textTab.style.display = 'none';
+    if (btnFile) { btnFile.className = 'btn btn-sm btn-primary'; }
+    if (btnText) { btnText.className = 'btn btn-sm btn-secondary'; }
+  } else {
+    if (fileTab) fileTab.style.display = 'none';
+    if (textTab) textTab.style.display = 'block';
+    if (btnFile) { btnFile.className = 'btn btn-sm btn-secondary'; }
+    if (btnText) { btnText.className = 'btn btn-sm btn-primary'; }
+    const pasteArea = document.getElementById('resume-paste-area');
+    if (pasteArea) pasteArea.focus();
+  }
+};
+
+window.triggerResumeBrowse = function(e) {
+  if (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  const fileInput = document.getElementById('resume-file-input');
+  if (fileInput) fileInput.click();
+};
+
+window.clearPastedResume = function() {
+  const pasteArea = document.getElementById('resume-paste-area');
+  if (pasteArea) {
+    pasteArea.value = '';
+    pasteArea.focus();
+  }
+};
+
+window.reExtractCurrentFile = function() {
+  if (window._currentResumeFile) {
+    uploadAndParseResume(window._currentResumeFile);
+  } else {
+    window.triggerResumeBrowse();
+  }
+};
+
 // Resume Upload & Drag-and-Drop Setup
 function setupResumeDropzone() {
   const dropzone = document.getElementById('resume-dropzone');
   const fileInput = document.getElementById('resume-file-input');
   if (!dropzone || !fileInput) return;
 
+  dropzone.addEventListener('click', (e) => {
+    // If the click originated from an explicit button inside, don't double trigger
+    if (e.target.closest('button')) return;
+    fileInput.click();
+  });
+
   ['dragenter', 'dragover'].forEach(eventName => {
     dropzone.addEventListener(eventName, (e) => {
       e.preventDefault();
+      e.stopPropagation();
       dropzone.classList.add('dragover');
     }, false);
   });
@@ -210,6 +268,7 @@ function setupResumeDropzone() {
   ['dragleave', 'drop'].forEach(eventName => {
     dropzone.addEventListener(eventName, (e) => {
       e.preventDefault();
+      e.stopPropagation();
       dropzone.classList.remove('dragover');
     }, false);
   });
@@ -217,28 +276,39 @@ function setupResumeDropzone() {
   dropzone.addEventListener('drop', (e) => {
     const dt = e.dataTransfer;
     const files = dt.files;
-    if (files.length) handleResumeFile(files[0]);
+    if (files.length) {
+      window._currentResumeFile = files[0];
+      handleResumeFile(files[0]);
+    }
   });
 
   fileInput.addEventListener('change', () => {
-    if (fileInput.files.length) handleResumeFile(fileInput.files[0]);
+    if (fileInput.files.length) {
+      const file = fileInput.files[0];
+      window._currentResumeFile = file;
+      handleResumeFile(file);
+      // Reset input value so selecting the same file again triggers change
+      fileInput.value = '';
+    }
   });
 }
 
 async function handleResumeFile(file) {
-  const allowed = ['.pdf', '.docx', '.doc'];
+  const allowed = ['.pdf', '.docx', '.doc', '.txt'];
   const ext = '.' + file.name.split('.').pop().toLowerCase();
   if (!allowed.includes(ext)) {
-    showToast('Only PDF and DOCX resume formats are supported.', 'error');
+    showToast('Only PDF, DOCX, and TXT resume formats are supported.', 'error');
     return;
   }
 
   const statusBox = document.getElementById('file-status-box');
   const fileNameText = document.getElementById('file-status-name');
+  const reExtractBtn = document.getElementById('btn-re-extract');
 
   if (statusBox && fileNameText) {
     statusBox.classList.add('active');
     fileNameText.textContent = `${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+    if (reExtractBtn) reExtractBtn.style.display = 'inline-flex';
   }
 
   // Auto trigger upload & parse
@@ -263,9 +333,15 @@ async function uploadAndParseResume(file) {
     const result = await res.json();
     if (uploadIndicator) uploadIndicator.style.display = 'none';
 
-    if (result.status === 'success') {
-      showToast('Resume extracted successfully! Reviewing details...', 'success');
-      showResumeReviewModal(result.data);
+    if (result.status === 'success' && result.data) {
+      // 1. Immediately apply the extracted data into the form fields
+      applyExtractedData(result.data);
+
+      // 2. Display success banner and toast
+      showToast('Resume extracted! Your profile form has been populated.', 'success');
+
+      // 3. Prepare review modal
+      showResumeReviewModal(result.data, false);
     } else {
       showToast(result.message || 'Error parsing resume', 'error');
     }
@@ -275,8 +351,63 @@ async function uploadAndParseResume(file) {
   }
 }
 
+// Handle Pasted Resume Text Extraction
+window.handlePastedResumeExtract = async function() {
+  const pasteArea = document.getElementById('resume-paste-area');
+  const parseBtn = document.getElementById('btn-parse-text');
+  if (!pasteArea) return;
+
+  const text = pasteArea.value.trim();
+  if (!text || text.length < 20) {
+    showToast('Please paste your resume contents (skills, education, or experience) before extracting.', 'warning');
+    pasteArea.focus();
+    return;
+  }
+
+  if (parseBtn) {
+    parseBtn.disabled = true;
+    parseBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Extracting...';
+  }
+
+  showToast('Parsing resume text and extracting skills...', 'info');
+
+  try {
+    const res = await fetch('/api/resume/parse', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ resume_text: text })
+    });
+
+    const result = await res.json();
+    if (parseBtn) {
+      parseBtn.disabled = false;
+      parseBtn.innerHTML = '<i class="fas fa-wand-magic-sparkles"></i> Extract & Populate Form';
+    }
+
+    if (result.status === 'success' && result.data) {
+      // 1. Immediately populate form
+      applyExtractedData(result.data);
+
+      // 2. Show toast & banner
+      showToast('Resume text extracted! Profile form has been populated.', 'success');
+
+      // 3. Prepare review modal
+      showResumeReviewModal(result.data, false);
+    } else {
+      showToast(result.message || 'Failed to extract from resume text', 'error');
+    }
+  } catch (err) {
+    if (parseBtn) {
+      parseBtn.disabled = false;
+      parseBtn.innerHTML = '<i class="fas fa-wand-magic-sparkles"></i> Extract & Populate Form';
+    }
+    showToast(`Error: ${err.message}`, 'error');
+  }
+};
+
 // Show Extraction Preview Modal
-function showResumeReviewModal(extracted) {
+function showResumeReviewModal(extracted, openModalDirectly = true) {
+  window._lastExtractedData = extracted;
   const modal = document.getElementById('review-modal');
   const body = document.getElementById('review-modal-body');
   if (!modal || !body) return;
@@ -295,10 +426,10 @@ function showResumeReviewModal(extracted) {
         <i class="fas fa-id-card"></i> Candidate Summary
       </h4>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.6rem; font-size: 0.9rem;">
-        <p><strong>Name:</strong> ${extracted.full_name || 'Not detected'}</p>
-        <p><strong>College:</strong> ${extracted.college_name || 'Not detected'}</p>
+        <p><strong>Name:</strong> ${extracted.full_name || 'Not detected (please enter below)'}</p>
+        <p><strong>College:</strong> ${extracted.college_name || 'Not detected (please enter below)'}</p>
         <p><strong>Branch:</strong> ${extracted.branch || 'Computer Science'}</p>
-        <p><strong>Semester:</strong> ${extracted.current_semester} | <strong>Graduation:</strong> ${extracted.graduation_year}</p>
+        <p><strong>Semester:</strong> Semester ${extracted.current_semester || 6} | <strong>Graduation:</strong> ${extracted.graduation_year || 2026}</p>
       </div>
     </div>
 
@@ -331,29 +462,72 @@ function showResumeReviewModal(extracted) {
 
   // Attach apply button action
   const applyBtn = document.getElementById('btn-apply-extracted');
-  applyBtn.onclick = () => {
-    applyExtractedData(extracted);
-    modal.classList.remove('active');
-    showToast('Resume data applied to profile form! Please review and submit.', 'success');
-  };
+  if (applyBtn) {
+    applyBtn.onclick = () => {
+      applyExtractedData(extracted);
+      modal.classList.remove('active');
+      showToast('Resume data confirmed and populated into profile form!', 'success');
+      const nameInput = document.getElementById('full_name');
+      if (nameInput) nameInput.focus();
+    };
+  }
 
-  modal.classList.add('active');
+  if (openModalDirectly) {
+    modal.classList.add('active');
+  }
 }
+
+window.openReviewModalFromBanner = function() {
+  if (window._lastExtractedData) {
+    showResumeReviewModal(window._lastExtractedData, true);
+  } else {
+    showToast('Please upload or paste a resume first.', 'info');
+  }
+};
 
 function closeReviewModal() {
   const modal = document.getElementById('review-modal');
   if (modal) modal.classList.remove('active');
 }
 
-// Apply extracted values to form
+// Apply extracted values directly to form
 function applyExtractedData(data) {
-  if (data.full_name) document.getElementById('full_name').value = data.full_name;
-  if (data.college_name) document.getElementById('college_name').value = data.college_name;
-  if (data.branch) document.getElementById('branch').value = data.branch;
-  if (data.current_semester) document.getElementById('current_semester').value = data.current_semester;
-  if (data.graduation_year) document.getElementById('graduation_year').value = data.graduation_year;
+  if (!data) return;
+  window._lastExtractedData = data;
 
-  // Add extracted skills
+  if (data.full_name) {
+    const nameElem = document.getElementById('full_name');
+    if (nameElem) nameElem.value = data.full_name;
+  }
+  if (data.college_name) {
+    const colElem = document.getElementById('college_name');
+    if (colElem) colElem.value = data.college_name;
+  }
+  if (data.branch) {
+    const branchElem = document.getElementById('branch');
+    if (branchElem) {
+      // Find matching branch option
+      let matched = false;
+      for (let opt of branchElem.options) {
+        if (opt.value.toLowerCase() === data.branch.toLowerCase()) {
+          branchElem.value = opt.value;
+          matched = true;
+          break;
+        }
+      }
+      if (!matched && data.branch) branchElem.value = data.branch;
+    }
+  }
+  if (data.current_semester) {
+    const semElem = document.getElementById('current_semester');
+    if (semElem) semElem.value = String(data.current_semester);
+  }
+  if (data.graduation_year) {
+    const gradElem = document.getElementById('graduation_year');
+    if (gradElem) gradElem.value = String(data.graduation_year);
+  }
+
+  // Aggregate all parsed skills
   const allParsedSkills = [
     ...(data.programming_languages || []),
     ...(data.frameworks || []),
@@ -367,11 +541,41 @@ function applyExtractedData(data) {
     selectedSkills.set(skill, prof);
   });
 
-  // Add extracted interests
+  // Aggregate extracted interests
   (data.interest_areas || []).forEach(i => selectedInterests.add(i));
 
+  // Refresh UI badges & list
   renderPresetTagButtons();
   renderSelectedSkillsList();
+
+  // Populate In-Page Banner
+  const banner = document.getElementById('extraction-result-banner');
+  const bannerTitle = document.getElementById('extract-banner-title');
+  const bannerSummary = document.getElementById('extract-banner-summary');
+  const bannerSkills = document.getElementById('extract-banner-skills');
+
+  if (banner) {
+    banner.style.display = 'block';
+    if (bannerTitle) {
+      bannerTitle.textContent = `${data.full_name ? data.full_name + ' — ' : ''}Resume Extracted Successfully!`;
+    }
+    if (bannerSummary) {
+      const skillsCount = allParsedSkills.length;
+      const interestsCount = (data.interest_areas || []).length;
+      bannerSummary.innerHTML = `
+        Identified <strong>${skillsCount} technical skills</strong>, <strong>${interestsCount} interest areas</strong>, 
+        and academic details (${data.branch || 'Engineering'}, Semester ${data.current_semester || 6}). 
+        All fields have been filled into the form below.
+      `;
+    }
+    if (bannerSkills) {
+      bannerSkills.innerHTML = allParsedSkills.slice(0, 12).map(s => `
+        <span style="background: var(--light-blue); color: var(--blue-dark); font-size: 0.78rem; font-weight: 700; padding: 2px 10px; border-radius: 99px; border: 1px solid #bae6fd;">
+          <i class="fas fa-check" style="font-size: 0.7rem; margin-right: 3px;"></i>${s}
+        </span>
+      `).join('') + (allParsedSkills.length > 12 ? `<span style="font-size: 0.78rem; color: var(--text-muted); align-self: center;">+${allParsedSkills.length - 12} more</span>` : '');
+    }
+  }
 }
 
 // Event Listeners

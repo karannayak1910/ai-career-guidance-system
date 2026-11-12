@@ -99,11 +99,14 @@ class ResumeParser:
             with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
                 return f.read()
 
-    def parse(self, file_path: str) -> Dict[str, Any]:
+    def parse_text(self, raw_text: str) -> Dict[str, Any]:
         """
-        Parses resume file and extracts structured student profile information.
+        Parses raw text (from file or user paste) and extracts structured student profile information.
         """
-        raw_text = self.extract_text(file_path)
+        if not raw_text:
+            raw_text = ""
+
+        # Normalize text for skill matching
         normalized_text = " " + re.sub(r"\s+", " ", raw_text).lower() + " "
 
         extracted = {
@@ -128,14 +131,14 @@ class ResumeParser:
             category = info.get("category", "Technical Skills")
             aliases = info.get("aliases", [skill_name.lower()])
             
-            # Check skill name and aliases
             matched = False
             for alias in aliases:
-                # Use regex with word boundaries or special handling for C++, C#
                 escaped = re.escape(alias.lower())
-                pattern = r"(?:\b|_)" + escaped + r"(?:\b|_)"
+                # Handle special punctuation characters in languages like C++, C#, .NET
                 if alias.lower() in ["c++", "c#", ".net"]:
-                    pattern = r"(?:^|\s|[,\(\);])" + escaped + r"(?:$|\s|[,\(\);])"
+                    pattern = r"(?:^|\s|[,\(\);\[\]\{\}])" + escaped + r"(?:$|\s|[,\(\);\[\]\{\}])"
+                else:
+                    pattern = r"(?:\b|_)" + escaped + r"(?:\b|_)"
                 
                 if re.search(pattern, normalized_text):
                     matched = True
@@ -157,75 +160,138 @@ class ResumeParser:
             else:
                 extracted["technical_skills"].append(skill)
 
-            # Assign default or detected proficiency
+            # Assign detected or default proficiency
             prof = self._detect_proficiency(raw_text, skill)
             extracted["skill_proficiencies"][skill] = prof
 
         return extracted
 
+    def parse(self, file_path: str) -> Dict[str, Any]:
+        """
+        Parses resume file and extracts structured student profile information.
+        """
+        raw_text = self.extract_text(file_path)
+        return self.parse_text(raw_text)
+
     def _extract_name(self, text: str) -> str:
-        """Extract name heuristic from first non-empty lines."""
+        """
+        Robustly extracts student/candidate name from resume text.
+        Handles titles, pipe/dash separators, inline email/phone, 'Name:' prefix, etc.
+        """
+        if not text:
+            return ""
+
+        # Strategy 1: Explicit "Name: <First> <Last>"
+        name_match = re.search(r"(?:^|\n)\s*(?:Candidate\s+)?Name\s*[:\-]\s*([A-Za-z\.\'\s]{2,40})", text, re.IGNORECASE)
+        if name_match:
+            candidate = name_match.group(1).strip()
+            candidate = re.split(r"[,\|\–\—\-\(\n]", candidate)[0].strip()
+            words = candidate.split()
+            if 2 <= len(words) <= 4 and all(re.match(r"^[A-Za-z\.\'-]{2,25}$", w) for w in words):
+                return candidate.title()
+
+        # Strategy 2: First non-empty lines before section headings
         lines = [line.strip() for line in text.split("\n") if line.strip()]
-        for line in lines[:5]:
-            # Ignore lines containing typical header words
-            lower = line.lower()
-            if any(w in lower for w in ["resume", "curriculum", "cv", "email", "phone", "contact", "http"]):
-                continue
-            words = line.split()
-            if 2 <= len(words) <= 4 and all(re.match(r"^[A-Za-z\.\'-]+$", w) for w in words):
-                return line.title()
+        for line in lines[:8]:
+            # Strip out email addresses, URLs, and phone numbers
+            cleaned = re.sub(r"[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+", "", line)
+            cleaned = re.sub(r"https?://\S+", "", cleaned)
+            cleaned = re.sub(r"\+?\d[\d\s\-\(\)]{8,}\d", "", cleaned)
+            
+            # Split by delimiters like |, -, bullet, comma, parentheses
+            parts = re.split(r"[\t\|\•\–\—\*\,\(\)\-]", cleaned)
+            for part in parts:
+                candidate = part.strip()
+                if not candidate:
+                    continue
+                lower_cand = candidate.lower()
+                # Skip words that cannot be a human name
+                if any(w in lower_cand for w in [
+                    "resume", "curriculum", "vitae", "cv", "portfolio", "profile", 
+                    "education", "experience", "projects", "skills", "summary", "contact",
+                    "engineer", "developer", "student", "intern", "github", "linkedin",
+                    "objective", "phone", "email", "address", "page", "declaration",
+                    "b.tech", "btech", "m.tech", "b.e", "b.sc", "computer", "science"
+                ]):
+                    continue
+                
+                words = candidate.split()
+                if 2 <= len(words) <= 4 and all(re.match(r"^[A-Za-z\.\'-]{2,25}$", w) for w in words):
+                    return candidate.title()
+                elif len(words) == 1 and line == lines[0] and re.match(r"^[A-Za-z\.\'-]{3,25}$", words[0]):
+                    return candidate.title()
+
         return ""
 
     def _extract_college(self, text: str) -> str:
-        """Extract college/university name heuristic."""
+        """
+        Robustly extracts college/university name.
+        """
+        if not text:
+            return ""
+
+        # Prioritize education section if present
+        edu_match = re.search(r"(?:education|academic|qualification|university|college)[\s\:\-]*\n([\s\S]{1,500})", text, re.IGNORECASE)
+        search_corpus = edu_match.group(1) if edu_match else text
+
         patterns = [
-            r"([A-Z][a-zA-Z\s]+(?:Institute|University|College|Academy|Engineering College)[a-zA-Z\s,]*)",
-            r"(IIT\s+[A-Za-z]+|NIT\s+[A-Za-z]+|IIIT\s+[A-Za-z]+|BITS\s+[A-Za-z]+|DTU|NSUT|VIT)"
+            r"([A-Z][a-zA-Z\s\&\.\']+(?:Institute|University|College|Academy|Engineering College|Polytechnic)[a-zA-Z\s\&\,\.\']*)",
+            r"\b(IIT\s+[A-Za-z]+|NIT\s+[A-Za-z]+|IIIT\s+[A-Za-z]+|BITS\s+[A-Za-z]+|DTU|NSUT|VIT|MIT|BITS Pilani|Stanford|Harvard)\b"
         ]
         for p in patterns:
-            match = re.search(p, text, re.IGNORECASE)
-            if match:
+            for match in re.finditer(p, search_corpus, re.IGNORECASE):
                 res = match.group(1).strip()
-                # Clean up any multiline prefix
-                if "\n" in res:
-                    lines = [ln.strip() for ln in res.split("\n") if ln.strip()]
-                    for ln in lines:
-                        if any(w in ln.lower() for w in ["institute", "university", "college", "academy", "dtu", "iit", "nit"]):
-                            return ln.title()
-                if len(res) > 4 and len(res) < 80:
+                res = re.split(r"[\n\r]", res)[0].strip()
+                res = re.sub(r"^(?:at|from|in|pursuing|graduated from|studied at|b\.?tech from|degree from)\s+", "", res, flags=re.IGNORECASE).strip()
+                res = re.sub(r"\s*[\,\-]\s*(?:b\.?tech|b\.?e\.?|cse|it|bachelor|master|m\.?tech).*$", "", res, flags=re.IGNORECASE).strip()
+                if 4 <= len(res) <= 80:
                     return res.title()
+
         return ""
 
     def _extract_branch(self, text: str) -> str:
-        """Detect student branch / field of study."""
+        """Detect student branch / field of study with high specificity."""
         branches = [
-            ("Computer Science", ["computer science", "cse", "cs & e", "computer engineering"]),
-            ("Information Technology", ["information technology", "it"]),
-            ("Artificial Intelligence", ["artificial intelligence", "ai & ds", "ai/ml", "aiml"]),
-            ("Data Science", ["data science", "data analytics"]),
-            ("Electronics & Communication", ["electronics", "ece", "telecommunication"]),
-            ("Electrical Engineering", ["electrical engineering", "eee"]),
-            ("Mechanical Engineering", ["mechanical"]),
-            ("Civil Engineering", ["civil"])
+            ("Artificial Intelligence", ["artificial intelligence", "ai & ds", "ai/ds", "ai/ml", "aiml", "ai and data science", "ai & machine learning"]),
+            ("Data Science", ["data science", "data analytics", "big data analytics"]),
+            ("Information Technology", ["information technology", "b.tech it", "bachelor of technology in it"]),
+            ("Electrical Engineering", ["electrical & electronics", "electrical and electronics", "eee", "electrical engineering"]),
+            ("Electronics & Communication", ["electronics & communication", "electronics and communication", "ece", "telecommunication", "electronics"]),
+            ("Mechanical Engineering", ["mechanical engineering", "mechanical", "mech"]),
+            ("Civil Engineering", ["civil engineering", "civil"]),
+            ("Computer Science", ["computer science", "cse", "cs & e", "computer engineering", "computer science and engineering", "software engineering", r"\bcs\b"])
         ]
         lower_text = text.lower()
         for branch_name, keywords in branches:
             for kw in keywords:
-                if re.search(r"\b" + re.escape(kw) + r"\b", lower_text):
+                if kw.startswith(r"\b"):
+                    pattern = kw
+                else:
+                    pattern = r"(?:\b|_)" + re.escape(kw) + r"(?:\b|_)"
+                if re.search(pattern, lower_text):
                     return branch_name
-        return "Computer Science" # default standard
+        return "Computer Science"
 
     def _extract_semester(self, text: str) -> int:
-        """Detect current semester."""
+        """Detect current semester (supports numbers, year words, Roman numerals)."""
+        # Explicit semester label: Semester 6, Sem: 6, Sem-6
         match = re.search(r"(?:semester|sem)\s*[:\-]?\s*([1-8])\b", text, re.IGNORECASE)
         if match:
             return int(match.group(1))
-        # Year to semester heuristic
+        
+        # Roman numeral semesters: Semester VI, Sem IV
+        roman_match = re.search(r"(?:semester|sem)\s*[:\-]?\s*\b(I|II|III|IV|V|VI|VII|VIII)\b", text, re.IGNORECASE)
+        if roman_match:
+            roman_map = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5, "VI": 6, "VII": 7, "VIII": 8}
+            return roman_map.get(roman_match.group(1).upper(), 6)
+
+        # Year to semester mapping
         year_match = re.search(r"\b(1st|2nd|3rd|4th)\s+year\b", text, re.IGNORECASE)
         if year_match:
             mapping = {"1st": 2, "2nd": 4, "3rd": 6, "4th": 8}
             return mapping.get(year_match.group(1).lower(), 6)
-        return 6 # Default 3rd year / 6th sem for college students
+
+        return 6
 
     def _extract_grad_year(self, text: str) -> int:
         """Detect graduation year."""
@@ -252,7 +318,6 @@ class ResumeParser:
         """Heuristic for skill proficiency: Beginner, Intermediate, or Advanced."""
         lower_text = text.lower()
         s_lower = skill.lower()
-        # Look for phrases nearby
         pattern_adv = rf"(advanced|proficient|expert|lead|mastered).{{0,30}}\b{re.escape(s_lower)}\b|\b{re.escape(s_lower)}\b.{{0,30}}(advanced|proficient|expert)"
         if re.search(pattern_adv, lower_text):
             return "Advanced"
@@ -266,3 +331,7 @@ class ResumeParser:
 def parse_resume_file(file_path: str) -> Dict[str, Any]:
     parser = ResumeParser()
     return parser.parse(file_path)
+
+def parse_resume_text(text: str) -> Dict[str, Any]:
+    parser = ResumeParser()
+    return parser.parse_text(text)
